@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>CRICKET Home</title>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+
+
+
+        .navbar-default
+        {
+            background-color: purple;
+            border-color: rebeccapurple;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            font-size: 1.3em;
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-text {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+            font-size: 1.3em;
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+
+
+        @media (max-width: 767px) {
+
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #ecf0f1;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #ffbbbc;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffbbbc;
+                background-color: #c02b94;
+            }
+        }
+
+        #heading
+        {
+            font-size: 90px;
+            font-family: Serif;
+            color:red;
+        }
+
+        @media screen and (max-width: 900px) {
+
+            #heading
+            {
+                font-size:70px;
+                font-family: Serif;
+                color:red;
+            }
+
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">About Us </a>
+                </li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <br><br>
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <h1 align="center" id="heading">Recently Concluded</h1>
+
+        </div>
+
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="col-md-3">
+            <button id="1" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">Test</button>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <button id="2" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">One day Internationals</button>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <button id="3" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">T20 Internationals</button>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+
+        <div class="col-md-1"></div>
+        <div class="col-md-10" id="div">
+
+            <table class="table table-bordered table-hover" style="background-color:cornsilk" id="t1" ></table>
+
+        </div>
+        <div class="col-md-1"></div>
+
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">
+            <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="prev">Prev</button>
+            <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="prev2">Prev</button>
+            <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="prev3">Prev</button>
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2">
+
+
+            <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="next">Next</button>
+            <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="next2">Next</button>
+            <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="next3">Next</button>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    </div>
+<br><br>
+
+<script>
+
+    var cnt=0;
+
+    $("#1").click(function () {
+
+        initialise(function () {
+            $.get('/test-up1',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt++;
+                $("#next").css("display","block");
+            })
+        });
+    });
+
+    $("#next").click(function () {
+        $.get('/test-up2',function (data,status) {
+            $("#t1").html(data);
+            $("#t1 a").attr("href" , "#");
+            $("#next").css("display","none");
+            $("#prev").css("display","block");
+            cnt++;
+        });
+    });
+
+    $("#prev").click(function () {
+
+        $.get('/test-up1',function (data,status) {
+            $("#t1").html(data);
+            $("#t1 a").attr("href" , "#");
+            $("#next").css("display","block");
+            $("#prev").css("display","none");
+            cnt--;
+        })
+    });
+
+
+    $("#2").click(function () {
+
+        initialise(function () {
+            $.get('/odi-up1',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt++;
+                $("#next2").css("display","block");
+            })
+        });
+    });
+
+    
+    $("#next2").click(function () {
+        
+        if(cnt==1)
+        {
+            $.get('/odi-up2',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                $("#prev2").css("display","block");
+                cnt++;
+            });
+        }
+
+        else if(cnt==2)
+        {
+            $.get('/odi-up3',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt++;
+                $("#next2").css("display","none");
+            });
+        }
+
+    });
+
+    
+    $("#prev2").click(function () {
+        
+        
+        if(cnt==2)
+        {
+            $.get('/odi-up1',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                $("#prev2").css("display","none");
+                cnt--;
+            });
+        }
+
+        else if(cnt==3)
+        {
+            $.get('/odi-up2',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                $("#next2").css("display","block");
+                cnt--;
+            });
+        }
+       
+    });
+    
+    
+    /*   BUTTON 3 */
+
+    $("#3").click(function () {
+
+        initialise(function () {
+            $.get('/t20-up1',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt++;
+                $("#next3").css("display","block");
+            })
+        });
+    });
+
+    
+    $("#next3").click(function () {
+        
+        if(cnt==1)
+        {
+            $.get('/t20-up2',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt++;
+                $("#prev3").css("display","block");
+            });
+        }
+
+        else if(cnt==2)
+        {
+            $.get('/t20-up3',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt++;
+            });
+        }
+        else if(cnt==3)
+        {
+            $.get('/t20-up4',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt++;
+            });
+        }
+        
+        else if(cnt==4)
+        {
+            $.get('/t20-up5',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                $("#next3").css("display","none");
+                cnt++;
+            });
+        }
+
+    });
+
+
+    $("#prev3").click(function () {
+        
+
+         if(cnt==2)
+        {
+            $.get('/t20-up1',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                $("#prev3").css("display","none");
+                cnt--;
+            });
+        }
+
+        else if(cnt==3)
+        {
+            $.get('/t20-up2',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt--;
+            });
+        }
+
+        else if(cnt==4)
+        {
+            $.get('/t20-up3',function (data,status) {
+                $("#t1").html(data);
+                $("#t1 a").attr("href" , "#");
+                cnt--;
+            });
+        }
+
+         else if(cnt==5)
+         {
+             $.get('/t20-up4',function (data,status) {
+                 $("#t1").html(data);
+                 $("#t1 a").attr("href" , "#");
+                 cnt--;
+                 $("#next3").css("display","block");
+             });
+         }
+    });
+
+
+    function initialise(callback) {
+        cnt=0;
+        $("#next").css("display","none");
+        $("#prev").css("display","none");
+        $("#next2").css("display","none");
+        $("#prev2").css("display","none");
+        $("#next3").css("display","none");
+        $("#prev3").css("display","none");
+        callback("");
+    }
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>Cricket</title>
+</head>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+
+<style>
+    .navbar-default
+    {
+        background-color: purple;
+        border-color: rebeccapurple;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        font-size: 1.3em;
+        color: #ffbbbc;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        font-size: 1.3em;
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    @media (max-width: 767px) {
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #ffbbbc;
+            background-color: #c02b94;
+        }
+    }
+    /*Media queries regrading photos and size*/
+    @media screen and (max-width: 992px)
+    {
+        #row1-div1
+        {
+            display: none;
+        }
+        #row1-div3
+        {
+            display: none;
+        }
+        #heading
+        {
+            font-size: 5em;
+        }
+        #row2
+        {
+            display: none;
+        }
+        .btn-block
+        {
+            font-size: 0.5em;
+            height: 50px;
+        }
+    }
+    #heading
+    {
+        font-size: 6em;
+    }
+
+    body
+    {
+        background: url("assets/img/backgrounds/bg1.jpg");
+    }
+    .btn-block
+    {
+        height: 80px;
+        color: white;
+        font-size: 2em;
+    }
+</style>
+
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html" id="home-button">Home</a></li>
+                <li>
+                    <a href="aboutUs.html">About Us </a>
+                </li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
+                <li><a id="log-out" href="index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row"   id="row1" style="margin-top: 10px; margin-bottom: 10px;">
+
+
+        <div class="col-sm-3" id="row1-div1">
+
+            <img src="assets/photo1.jpg" height="150px" class="img-circle img-responsive" id="top-image1">
+
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-4" id="row1-div2">
+
+            <div id="heading" style="font-weight: bold ;  font-family: Serif ; color: whitesmoke"  > CRICKET  </div>
+
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3" id="row1-div3">
+
+            <img src="assets/photo2.jpg" height="150px" class="img-circle img-responsive" id="top-image2">
+
+        </div>
+
+
+    </div>
+    <div class="row" id="row2" style="margin-top: 10px; background-color: rgba(100 , 0 , 0 , 0.5)">
+
+        <div class="col-sm-12" id="row2-div1">
+
+            <p id="caption1" style="text-align: center; font-size: 1.4em; color: white;">One Account makes work so easy!</p>
+            <p id="caption2" style="text-align: center; font-size: 1.4em; color: darkblue;"> <mark>Prove yourself a cricket enthusiast</mark> </p>
+
+        </div>
+
+    </div>
+
+    <br><br><br><br>
+
+    <div class="row" id="row3">
+
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-sm-2">
+
+            <a href="profile.html"> <button class="btn btn-success btn-block" id="butt">Profile</button></a>
+
+        </div>
+        <div class="col-sm-1">
+
+        </div>
+        <div class="col-sm-3">
+
+            <a href="stats.html"> <button class="btn btn-success btn-block" id="butt1">Search for <br>cricket records </button></a>
+
+        </div>
+        <div class="col-sm-1">
+
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <a href="favourites.html"> <button class="btn btn-success btn-block" id="butt3">Favourites</button></a>
+
+        </div>
+        <div class="col-sm-1">
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+        if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+        {
+            alert("Please authenticate yourself as valid user to continue");
+            window.location.href = "login.html";
+        }
+
+        $('#log-out').click(function () {
+            localStorage.clear();
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.css">
+
+</head>
+<style>
+
+
+    
+    
+</style>
+<body>
+<div class="container">
+
+        <table id="1">
+
+
+        </table>
+
+</div>
+<script src="../jquery.js"></script>
+<script>
+
+    $(function () {
+
+        $('#1').html("Loading...");
+        $.get('/odi-bow-1',function (data,status) {
+
+            $("#1").html(data);
+            var T = $('table');
+            T.removeAttr('class');
+            T.addClass("table").addClass("table-hover").addClass("table-responsive");
+
+            var A = $('a');
+            console.log(A);
+            A.removeAttr('href');
+            A.attr('href','#');
+        });
+
+    });
+</script>
+</body>

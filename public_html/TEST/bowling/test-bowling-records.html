@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>CRICKET Home</title>
+</head>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/bootstrap.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../../css/bootstrap.css">
+
+<style>
+
+
+
+    .navbar-default
+    {
+        background-color: purple;
+        border-color: rebeccapurple;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        font-size: 1.3em;
+        color: #ffbbbc;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        font-size: 1.3em;
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+
+
+    @media (max-width: 767px) {
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #ffbbbc;
+            background-color: #c02b94;
+        }
+    }
+
+
+</style>
+
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html" id="home-button">Home</a></li>
+                <li>
+                    <a href="#">About Us </a>
+                </li>
+                <li><a href="../../project.html">Project</a></li>
+                <li><a href="../../Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="../../logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
+                <li><a id="log-out" href="../../index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <h1 align="center" style="font-family: Serif; font-size: 80px;color: red">Bowling-records</h1>
+
+        </div>
+
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <table class="table table-responsive table-bordered table-hover" >
+
+                <tbody >
+                <h2>Most wickets</h2>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-1.html">Most wickets in career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-2.html"> Best figures in an innings</a></td>
+                </tr>
+
+                <tr>
+                    <td> <a style="text-decoration: none" href="test-bwl-3.html"> Best figures in a match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-4.html">        Most wickets in a series</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-5.html">Most wickets in a calendar year</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-6.html"> Outstanding bowling analyses in an innings</a></td>
+                </tr>
+
+                <tr>
+                    <td> <a style="text-decoration: none" href="test-bwl-7.html"> Most wickets on a single ground</a></td>
+                </tr>
+                <tr>
+                    <td> <a style="text-decoration: none" href="test-bwl-8.html"> Best figures in a innings by a captain</a></td>
+                </tr>
+                <tr>
+                    <td> <a style="text-decoration: none" href="test-bwl-9.html">Best figures in a match by a captain</a></td>
+                </tr>
+                <tr>
+                    <td> <a style="text-decoration: none" href="test-bwl-10.html"> Best figures in a innings when on the losing side</a></td>
+                </tr>
+                <tr>
+                    <td> <a style="text-decoration: none" href="test-bwl-11.html">Best figures in a match when on the losing side</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div class="col-sm-4">
+            <table class="table table-responsive table-bordered table-hover" >
+                <h2>Averages, strike rates and economy</h2>
+                <tbody>
+
+
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-12.html">Best career bowling average</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-13.html">Best career economy rate</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-14.html">Best career strike rate</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-15.html">Best career bowling average (without qualification)</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-16.html">Best economy rate in an innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-17.html">Best strike rate in an innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-18.html"> Worst career bowling average</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-19.html">Worst career economy rate</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-20.html">Worst career strike rate</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-21.html"> Worst career bowling average (without qualification)</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-22.html">  Worst economy rate in an innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-23.html">Worst strike rate in an innings</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>c
+        <div class="col-sm-4">
+            <table class="table table-responsive table-bordered table-hover" >
+                <tbody>
+                <h2>Hauls</h2>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-24.html"> Most five-wickets-in-an-innings in a career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-25.html"> Most ten-wickets-in-a-match in a career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-26.html">   Most consecutive five-wickets-in-an-innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-27.html">Most consecutive ten-wickets-in-a-match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-28.html">Youngest player to take five-wickets-in-an-innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-29.html">Youngest player to take ten-wickets-in-a-match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-30.html">Oldest player to take five-wickets-in-an-innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-31.html"> Oldest player to take ten-wickets-in-a-match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-bwl-32.html"> Oldest player to take a maiden five-wickets-in-an-innings</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    $(function () {
+
+        if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+        {
+            var string = '<div class="container-fluid">' +
+                    ' <div class="navbar-header">' +
+                    '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">' +
+                    '<span class="icon-bar"></span>' +
+                    '<span class="icon-bar"></span>' +
+                    '   <span class="icon-bar"></span>' +
+                    ' </button>' +
+                    '<a class="navbar-brand" href="../../index.html">Cricket</a>' +
+                    '</div>' +
+                    '<div class="collapse navbar-collapse" id="myNavbar">'+
+                    ' <ul class="nav navbar-nav">'+
+                    '   <li ><a href="../../index.html">Home</a></li>' +
+                    '   <li>' +
+                    '   <a href="../../aboutUs.html">About Us </a>' +
+                    '</li>' +
+                    '<li><a href="../../project.html">Project</a></li>' +
+                    '   <li><a href="../../Resources.html">Resources</a></li>' +
+                    '</ul>' +
+                    '<ul class="nav navbar-nav navbar-right">' +
+                    '<li><a href="../../new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>'+
+                    '<li><a href="../../login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>' +
+                    '</ul>' +
+                    '</div>' +
+                    '</div>';
+            $('.navbar').html(string);
+        }
+
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>CRICKET Home</title>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+
+
+
+        .navbar-default
+        {
+            background-color: purple;
+            border-color: rebeccapurple;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            font-size: 1.3em;
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-text {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+            font-size: 1.3em;
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+
+
+        @media (max-width: 767px) {
+
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #ecf0f1;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #ffbbbc;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffbbbc;
+                background-color: #c02b94;
+            }
+        }
+
+        #heading
+        {
+            font-size: 90px;
+            font-family: Serif;
+            color:red;
+        }
+        @media screen and (max-width: 900px) {
+
+            #heading
+            {
+                font-size:70px;
+                font-family: Serif;
+                color:red;
+            }
+        }
+
+
+
+    </style>
+
+
+
+</head>
+<body style="background-color:bisque">
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">About Us </a>
+                </li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <br><br>
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <h1 align="center" id="heading">Latest News</h1>
+
+        </div>
+    </div>
+    <br><br><br><br>
+
+
+    <div class="btn-group btn-lg btn-group-justified">
+        <a  class="btn btn-success" id="1">Interviews</a>
+        <a  class="btn btn-success" id="2">Headlines</a>
+        <a  class="btn btn-success" id="3">Featured News</a>
+    </div>
+
+
+    <br><br><br><br>
+    <div class="row" >
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-10" id="div2" style="background-color: whitesmoke"></div>
+        <div class="col-sm-1"></div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+            <button  class="btn-primary btn-lg" style="display: none" id="more">Show more</button>
+            <button  class="btn-primary btn-lg" style="display: none" id="more2">Show more</button>
+        </div>
+        <div class="col-sm-8"></div>
+        <div class="col-sm-2">
+            <button  class="btn-primary btn-lg" style="display: none" id="top">GO to Top</button>
+            <button  class="btn-primary btn-lg" style="display: none" id="top2">Go to Top</button>
+        </div>
+    </div>
+
+   </div>
+<script>
+
+    var cnt=1;
+
+
+
+
+    function initialise(callback) {
+
+        cnt=1;
+        $("#more").css("display","none");
+        $("#more2").css("display","none");
+        $("#top").css("display","none");
+        $("#top2").css("display","none");
+        callback("");
+    }
+    
+    $("#2").click(function () {
+
+         initialise(function () {
+             $.get('/hl1',function (data,status) {
+                 window.location.href="#heading";
+                 $("#heading").text("Headlines");
+                 $("#more2").css("display","block");
+                 $("#top2").css("display","block");
+                 $("#div2").html(data);
+                 cnt++;
+             })
+         });
+
+    });
+
+
+    $("#more2").click(function () {
+
+        if(cnt==2)
+        {
+            $.get('/hl2',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==3)
+        {
+            $.get('/hl3',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==4)
+        {
+            $.get('/hl4',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==5)
+        {
+            $.get('/hl5',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==6)
+        {
+            $.get('/hl6',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==7)
+        {
+            $.get('/hl7',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==8)
+        {
+            $.get('/hl8',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==9)
+        {
+            $.get('/hl9',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==10)
+        {
+            $.get('/hl10',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+                $("#more").css("disabled");
+            });
+        }
+
+    });
+
+    $("#1").click(function () {
+
+        initialise(function () {
+            $.get('/interview1',function (data,status) {
+                window.location.href="#heading";
+                $("#heading").text("Interviews");
+                $("#div2").html(data);
+                $("#more").css("display","block");
+                $("#top").css("display","block");
+                cnt++;
+            })
+        });
+
+    });
+
+
+    $("#more").click(function () {
+
+        if(cnt==2)
+        {
+            $.get('/interview2',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==3)
+        {
+            $.get('/interview3',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==4)
+        {
+            $.get('/interview4',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==5)
+        {
+            $.get('/interview5',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==6)
+        {
+            $.get('/interview6',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==7)
+        {
+            $.get('/interview7',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+        else if(cnt==8)
+        {
+            $.get('/interview8',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==9)
+        {
+            $.get('/interview9',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+            });
+        }
+
+        else if(cnt==10)
+        {
+            $.get('/interview10',function (data,status) {
+                $("#div2").append(data);
+                cnt++;
+                $("#more").css("disabled");
+            });
+        }
+
+    });
+
+    $("#3").click(function () {
+
+        initialise(function () {
+
+            $.get('/featured',function (data,status) {
+                window.location.href="#heading";
+                $("#heading").text("Featured News");
+                $("#div2").html(data);
+            });
+        });
+    });
+
+    $("#top").click(function () {
+        window.location.href="#heading";
+    });
+    $("#top2").click(function () {
+        window.location.href="#heading";
+    });
+
+
+
+</script>
+</body>
+</html>

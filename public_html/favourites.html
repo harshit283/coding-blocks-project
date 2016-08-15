@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Favourites</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <script src="jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+
+<style>
+    .navbar-default
+    {
+        background-color: purple;
+        border-color: rebeccapurple;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        font-size: 1.3em;
+        color: #ffbbbc;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        font-size: 1.3em;
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    @media (max-width: 767px) {
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #ffbbbc;
+            background-color: #c02b94;
+        }
+    }
+    /*Media queries regrading photos and size*/
+    @media screen and (max-width: 700px)
+    {
+        #heading
+        {
+            font-size: 0.5em;
+        }
+
+    }
+
+    body
+    {
+        background: url("assets/img/backgrounds/bg5.jpg");
+        background-size: 100%;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Cricket</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html" id="home-button">Home</a></li>
+                    <li>
+                        <a href="aboutUs.html">About Us </a>
+                    </li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="Resources.html">Resources</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
+                    <li><a id="log-out" href="index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <br>
+        
+        <div class="row">
+
+            <div class="col-sm-3">
+
+
+            </div>
+
+            <div style="text-align: center; font-weight: 900; font-size: 5em; color: red; background-color: rgba(0,255,0,0.5)" class="col-sm-6" id="heading">
+            
+            Favourites
+            
+            </div>
+
+            <div class="com-sm-3">
+
+            </div>
+        </div>
+        <br><br><br>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+
+
+
+            </div>
+
+            <div id="fav" class="col-sm-6" style="font-size: 1.5em; background-color: lightgoldenrodyellow; color: darkgreen; text-align: center; text-decoration: underline">
+
+
+            </div>
+
+            <div class="col-sm-3">
+
+
+
+            </div>
+
+        </div>
+        <div id="box" class="row" style="text-align: center; color: brown; font-size: 1.5em">
+
+
+        </div>
+        
+    </div>
+
+<script>
+
+
+    $(function () {
+
+        if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+        {
+            alert("Please login to continue");
+            window.location.href = "login.html";
+        }
+
+        $('#box').html("<mark>" + "Loading.." + "</mark>");
+
+
+        $.post('/getFavourites', {username : localStorage.getItem('username')} , function (data, status) {
+
+            var string = "";
+
+            // To remove duplicate elements
+            for(var i = 0; i< data.fav.length; i++)
+            {
+                for(var j = i+1; j<data.fav.length; )
+                {
+                    if(data.fav[i][1] == data.fav[j][1])
+                    {
+                        for(var k = j; k<data.fav.length; k++)
+                        {
+                            data.fav[k] = data.fav[k+1];
+                        }
+                        data.fav.length--;
+                    }
+                    else
+                    {
+                        j++;
+                    }
+                }
+            }
+
+
+            for( i = 0; i<data.fav.length; i++)
+            {
+                string += '<br><mark> <a href="' + data.fav[i][1] + '">' + data.fav[i][0] + '</a></mark><br>';
+            }
+
+
+            if(data.fav.length == 0)
+            {
+                $('#box').html("");
+                $('#fav').html("No records Found");
+            }
+
+            else
+            {
+                string += '<br>';
+                $('#fav').html(string);
+                $('#box').html(" ");
+            }
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

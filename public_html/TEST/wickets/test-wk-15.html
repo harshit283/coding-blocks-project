@@ -1,0 +1,42 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.css">
+
+    <style>
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8" >
+            <table class="table  table-bordered" id="1"></table>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+</div>
+<script src="jquery.js"></script>
+<script>
+
+    $(function () {
+
+        $('#1').html("Loading...");
+        $.get('/test-wk-15',function (data,status) {
+
+            $("#1").html(data);
+            var T = $('table');
+            T.removeAttr('class');
+            T.addClass("table").addClass("table-hover").addClass("table-responsive");
+
+            var A = $('a');
+            console.log(A);
+            A.removeAttr('href');
+            A.attr('href','#');
+        });
+
+    });
+</script>
+</body>
+</html>

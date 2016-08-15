@@ -1,0 +1,265 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CRICKET</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+        .navbar-default
+        {
+            background-color: purple;
+            border-color: rebeccapurple;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            font-size: 1.3em;
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-text {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+            font-size: 1.3em;
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+        @media (max-width: 767px) {
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #ecf0f1;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #ffbbbc;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffbbbc;
+                background-color: #c02b94;
+            }
+        }
+
+
+    </style>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+</head>
+<body >
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="aboutUs.html">About Us </a>
+                </li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+
+            <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="form-group">
+                        <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" tabindex="1" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <input type="number" name="phone_number" id="phone_number" class="form-control input-lg" placeholder="Phone-Number" tabindex="3" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="age" id="age" class="form-control input-lg" placeholder="Age" tabindex="5" required>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="6" required>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="7" required>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row" >
+                <div class=" col-sm-12" ><button id="submit" style="box-shadow:5px 5px 5px black" class="btn btn-success btn-block btn-lg">Sign Up</button></div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+    localStorage.clear();
+
+    $("#email").focusout(function () {
+
+        if($("#email").val()=="")
+            return;
+        var email = $("#email").val();
+        var pos = email.indexOf('@');
+        if(pos==-1)
+        {
+            alert("Email Id must contain @ symbol");
+            $("#email").val("");
+        }
+        else if(pos == 0 || pos == email.length-1)
+        {
+            alert("Invalid Format for an Email Address");
+            $("#email").val("");
+        }
+
+
+    });
+
+    $('#submit').click(function () {
+
+        var obj = {};
+        var flag1=0,flag2=0;
+        obj.name= $('#username').val();
+        obj.pswd = $('#password').val();
+
+        var email = $("#email").val();
+        var pswd2 = $('#password_confirmation').val();
+        if( obj.name == "" ||  obj.pswd == "" ||  $('#age').val()=="" || $('#username').val() ==""  || $("#email").val()=="" || pswd2==""  )
+        {
+            alert("PLEASE FILL ALL THE ENTRIES");
+            $("#pswd").val("");
+            $("#pswd2").val("");
+            flag1++;
+        }
+
+        if(!flag1 && obj.pswd != pswd2)
+        {
+            alert("PLEASE FILL BOTH THE PASSWORDS CORRECTLY");
+            $("#password").val("");
+            $("#password_confirmation").val("");
+
+            flag2++;
+        }
+
+
+        if(!flag1 && !flag2)
+        {
+
+            $('#submit').html("Loading");
+            var requestdata = {
+
+                name : $('#username').val(),
+                pswd : $('#password').val(),
+                phone : $('#phone_number').val(),
+                email : $('#email').val(),
+                age : $('#age').val()
+            };
+            $.post('/newuser',requestdata,function (data,status) {
+
+                if(data=="no")
+                {
+                    alert("USERNAME ALREADY EXISTS");
+                    $('#submit').html("Sign Up");
+                }
+
+                else {
+                    localStorage.setItem('username',obj.name);
+                    window.location.href = "logged.html";
+                }
+            });
+        }
+
+    });
+
+</script>
+</body>
+</html>

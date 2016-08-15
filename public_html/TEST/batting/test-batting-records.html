@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>CRICKET Home</title>
+</head>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/bootstrap.js"></script>
+<link type="text/css" rel="stylesheet" href="../../css/bootstrap.css">
+<style>
+    .navbar-default
+    {
+        background-color: purple;
+        border-color: rebeccapurple;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        font-size: 1.3em;
+        color: #ffbbbc;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        font-size: 1.3em;
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+
+
+    @media (max-width: 767px) {
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #ffbbbc;
+            background-color: #c02b94;
+        }
+    }
+
+
+
+
+</style>
+
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="../../index.html" id="home-button">Home</a></li>
+                <li>
+                    <a href="#">About Us </a>
+                </li>
+                <li><a href="../../project.html">Project</a></li>
+                <li><a href="../../Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="../../logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
+                <li><a id="log-out" href="../../index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <h1 align="center" style="font-family: Serif; font-size: 80px;color: red">Batting records</h1>
+
+        </div>
+
+    </div>
+    <br><br>
+
+    <div class="row">
+            <div class="col-sm-4">
+                <table class="table table-responsive table-bordered table-hover" >
+
+                    <tbody >
+                    <h2>MOST RUNS</h2>
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-1.html">Most runs in career</a></td>
+                    </tr>
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-2.html">Most runs in an innings</a></td>
+                    </tr>
+
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-3.html">Most runs in an innings (progressive record holder)</a></td>
+                    </tr>
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-4.html">Most runs in a match</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-5.html">Most runs in a series</a></td>
+                    </tr>
+
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-6.html">Most runs in a calendar year</a></td>
+                    </tr>
+
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-7.html">Most runs in an innings (by batting position)</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-8.html">Most runs in a match on the losing side</a></td>
+                    </tr>
+
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-10.html">Most runs on a single ground</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-11.html">Most runs off one over</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-12.html">Most runs in a day</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-13.html">Most runs in an series by a captain</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-14.html">Most runs in an innings by a captain</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-15.html">Most runs in a series by a wicketkeeper</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-16.html">Most runs in an innings by a wicketkeeper</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-17.html">Most runs in an innings by a nightwatchman</a></td>
+                    </tr>
+                    <tr>
+                        <td> <a style="text-decoration: none" href="test-btr-18.html">Most runs in a career without a hundred</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+
+
+
+                        <div class="col-sm-4">
+                            <table class="table table-responsive table-bordered table-hover" >
+                                <tbody>
+
+                    <h2>Debuts and last match</h2>
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-21.html">Double hundred on debut</a></td>
+                    </tr>
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-22.html">Hundred on debut</a></td>
+                    </tr>
+                    <tr>
+                        <td><a style="text-decoration: none" href="test-btr-23.html">Most runs in debut match</a></td>
+                    </tr>
+                    <tr>
+                    <td><a style="text-decoration: none" href="test-btr-24.html">Hundred in last match</a></td>
+                    </tr>
+                    </tbody>
+                                </table>
+                            </div>
+        <div class="col-sm-4">
+            <table class="table table-responsive table-bordered table-hover" >
+                <tbody>
+                <h2>Hundreds</h2>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-25.html">Most hundreds in a career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-26.html">Most double hundreds in a career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-27.html">Most triple hundreds in a career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-28.html">Double hundred and hundred in a match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-29.html">Hundred in each innings of a match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-30.html">Most double hundreds in a series</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-31.html">Most hundreds in a series</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-32.html">
+                        Most hundreds in a calendar year</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-33.html">Most hundreds against one team</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-34.html">Hundreds in consecutive innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-35.html">Hundreds in consecutive matches</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-36.html">Hundreds in consecutive matches from debut</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-37.html">Highest maiden hundred</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-38.html">Hundred in hundredth match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-39.html">Youngest player to score a hundred</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-40.html">Youngest player to score a double hundred</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-41.html">Youngest player to score a triple hundred</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-42.html">Oldest player to score a hundred</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-43.html">Oldest player to score a maiden hundred</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-44.html">Fastest hundreds</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-45.html">Hundred runs before lunch</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-46.html">Hundred runs or more between lunch and tea</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-47.html">Hundred runs or more between tea and close</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-48.html">Fastest double hundreds</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-49.html">Fastest triple hundreds</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-50.html">Slowest hundreds</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-51.html">Slowest double hundreds</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="test-btr-52.html">Slowest triple hundreds</a></td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+
+    $(function () {
+
+        if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+        {
+            var string = '<div class="container-fluid">' +
+                    ' <div class="navbar-header">' +
+                    '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">' +
+                    '<span class="icon-bar"></span>' +
+                    '<span class="icon-bar"></span>' +
+                    '   <span class="icon-bar"></span>' +
+                    ' </button>' +
+                    '<a class="navbar-brand" href="../../index.html">Cricket</a>' +
+                    '</div>' +
+                    '<div class="collapse navbar-collapse" id="myNavbar">'+
+                    ' <ul class="nav navbar-nav">'+
+                    '   <li ><a href="../../index.html">Home</a></li>' +
+                    '   <li>' +
+                    '   <a href="../../aboutUs.html">About Us </a>' +
+                    '</li>' +
+                    '<li><a href="../../project.html">Project</a></li>' +
+                    '   <li><a href="../../Resources.html">Resources</a></li>' +
+                    '</ul>' +
+                    '<ul class="nav navbar-nav navbar-right">' +
+                    '<li><a href="../../new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>'+
+                    '<li><a href="../../login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>' +
+                    '</ul>' +
+                    '</div>' +
+                    '</div>';
+            $('.navbar').html(string);
+        }
+
+    });
+
+</script>
+</body>
+</html>

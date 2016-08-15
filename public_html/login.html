@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Login Form </title>
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/form-elements.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <style>
+        .navbar-default
+        {
+            background-color: purple;
+            border-color: rebeccapurple;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            font-size: 1.3em;
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-text {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+            font-size: 1.3em;
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+        @media (max-width: 767px) {
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #ecf0f1;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #ffbbbc;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffbbbc;
+                background-color: #c02b94;
+            }
+        }
+
+        body
+        {
+            background: url("assets/img/backgrounds/1.jpg");
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="aboutUs.html">About Us </a>
+                </li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li class="active"><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text">
+            <h1 style="color: darkblue; font-size: 4em; font-weight: 900;">Login Form</h1>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="form-top">
+                <div class="form-top-left">
+                    <h3>Login to our site</h3>
+                    <p>Enter your username and password to log in:</p>
+                </div>
+                <div class="form-top-right">
+                    <i class="fa fa-key"></i>
+                </div>
+            </div>
+            <div class="form-bottom">
+
+                <div class="form-group">
+                    <label class="sr-only" for="form-username">Username</label>
+                    <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="form-password">Password</label>
+                    <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                </div>
+                <button type="submit" id="submit" class="btn-block btn-danger btn-lg" style="box-shadow: 5px 5px 5px black">Sign in!</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<script src="js/scripts.js"></script>
+
+
+
+<script>
+    localStorage.clear();
+    $('#submit').click(function () {
+        var obj= {
+            name:$("#form-username").val(),
+            pswd:$('#form-password').val()
+        };
+        if( obj.name == '' ||  obj.pswd == '')
+        {
+            alert("PLEASE FILL ALL THE ENTRIES");
+            window.location.href="";
+        }
+        else{
+            //$('#box').html("Loading");
+            $('#submit').html("Loading");
+            var username = $("#form-username").val();
+            var request = {
+                username:$("#form-username").val(),
+                password:$('#form-password').val()
+            };
+            $.post('/login',request,function (data,status) {
+                if(data.val == 0)
+                {
+                    alert("INVALID USERNAME OR PASSWORD");
+                    $('#form-password').val("");
+                    $('#form-username').val("");
+                    $('#submit').html("Sign in");
+                }
+                else{
+                    localStorage.setItem('username',username);
+                    window.location.href = "logged.html";
+                }
+            })
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script src="jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+
+
+<style>
+
+    .navbar-default
+    {
+        background-color: purple;
+        border-color: rebeccapurple;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        font-size: 1.3em;
+        color: #ffbbbc;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        font-size: 1.3em;
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+
+
+    @media (max-width: 767px) {
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #ffbbbc;
+            background-color: #c02b94;
+        }
+    }
+
+    .col-sm-6
+    {
+        font-size: 1.7em;
+        color: blue;
+    }
+    .form-control
+    {
+        color: orange;
+        font-size: 1.1em;
+        height: 45px;
+    }
+    .btn-block
+    {
+        height: 50px;
+        color: white;
+        font-size: 1.3em;
+    }
+
+
+
+</style>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html" id="home-button">Home</a></li>
+                <li>
+                    <a href="aboutUs.html">About Us </a>
+                </li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
+                <li><a id="log-out" href="index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br><br>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-6 col-sm-offset-3">
+
+            Username :
+            <input type="text" class="form-control" title="Username" placeholder="Username" id="username">
+
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+
+        <div class="col-sm-6 col-sm-offset-3">
+
+            Phone :
+            <input type="number" class="form-control" title="Phone" placeholder="Phone" id="phone">
+
+        </div>
+
+    </div>
+
+    <br>    <div class="row">
+
+    <div class="col-sm-6 col-sm-offset-3">
+
+        Email :
+        <input type="email" class="form-control" title="Email" placeholder="Email" id="email">
+
+    </div>
+
+</div>
+
+    <br> <div class="row">
+
+    <div class="col-sm-6 col-sm-offset-3">
+
+        Age :
+        <input type="number" class="form-control" id="age" title="Age" placeholder="Age">
+
+    </div>
+
+</div>
+
+    <br><br><br> <div class="row">
+
+    <div class="col-sm-1">
+
+    </div>
+
+    <div class="col-sm-4">
+
+        <button class="btn btn-success btn-block" id="update">Update</button>
+
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+        <button class="btn btn-success btn-block" id="cancel">Cancel</button>
+
+    </div>
+    <div class="col-sm-1">
+
+
+
+    </div>
+
+
+</div>
+
+    <div class="row">
+
+        <div class="col-sm-12" id="box" style="font-size: 1.3em; color: #2b542c">
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    $(function () {
+
+        if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+        {
+            alert("Please login to continue");
+            window.location.href = "login.html";
+        }
+
+        $('#box').html("Loading");
+
+        var username = localStorage.getItem('username');
+
+        $.post('/fetchUser', {username : username}, function (data, status) {
+
+
+            $('#username').val(data[0].username);
+            $('#phone').val(data[0].phone);
+            $('#email').val(data[0].email);
+            $('#age').val(data[0].age);
+            $('#box').html("");
+
+        });
+
+
+        $('#update').click(function () {
+
+            var username = $('#username').val();
+            var phone = $('#phone').val();
+            var email = $('#email').val();
+            var age = $('#age').val();
+
+            if(username == "" || phone == "" || email == "" || age == "")
+            {
+                alert("Please fill all the entries");
+            }
+            else if (email.includes('@') == 0 || email.includes('.') == 0)
+            {
+                alert("Please add @ and . in email");
+            }
+            else
+            {
+                var request = {
+
+                    l_username : localStorage.getItem('username'),
+                    username : username,
+                    phone : phone,
+                    email : email,
+                    age : age
+
+                };
+
+                $('#box').html("Loading");
+
+                $.post('/updateInfo', request, function (data, status) {
+
+                    // console.log("Data received is");
+                    // console.log(data);
+                    if (data.result == 0)
+                    {
+                        alert("Select a different username. This one already exists");
+                        $('#box').html("");
+                    }
+                    else
+                    {
+
+                        localStorage.clear();
+                        localStorage.setItem('username',username);
+                        window.location.href = "profile.html";
+
+                    }
+                    $('box').html("");
+
+                });
+            }
+
+        });
+
+        $('#cancel').click(function () {
+
+            window.location.href = "profile.html";
+
+        });
+
+
+    });
+
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

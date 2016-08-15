@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>CRICKET Home</title>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+
+
+
+        .navbar-default
+        {
+            background-color: purple;
+            border-color: rebeccapurple;
+        }
+        .navbar-default .navbar-brand {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            font-size: 1.3em;
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-text {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: #ecf0f1;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+        .navbar-default .navbar-nav > .active > a,
+        .navbar-default .navbar-nav > .active > a:hover,
+        .navbar-default .navbar-nav > .active > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-nav > .open > a,
+        .navbar-default .navbar-nav > .open > a:hover,
+        .navbar-default .navbar-nav > .open > a:focus {
+            color: #ffbbbc;
+            font-size: 1.3em;
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: #c02b94;
+        }
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #ecf0f1;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #ecf0f1;
+        }
+        .navbar-default .navbar-link {
+            font-size: 1.3em;
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-link:hover {
+            color: #ffbbbc;
+            font-size: 1.3em;
+        }
+
+
+        @media (max-width: 767px) {
+
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #ecf0f1;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                color: #ffbbbc;
+            }
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ffbbbc;
+                background-color: #c02b94;
+            }
+        }
+
+        #heading
+        {
+            font-size: 90px;
+            font-family: Serif;
+            color:red;
+        }
+
+        @media screen and (max-width: 900px) {
+
+            #heading
+            {
+                font-size:70px;
+                font-family: Serif;
+                color:red;
+            }
+        }
+
+        h2
+        {
+            font-family: Serif;
+        }
+
+        p
+        {
+            font-weight: bold;
+            font-family: Arial;
+        }
+
+
+    </style>
+
+
+
+</head>
+<body style="background-color: lightpink">
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li>
+                    <a href="aboutUs.html">About Us </a>
+                </li>
+                <li><a href="project.html">Project</a></li>
+                <li><a href="Resources.html">Resources</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <br><br>
+    <div class="row" id="row">
+
+        <div class="col-sm-12">
+
+            <h1 align="center" id="heading">Live Scores</h1>
+            <br><br><br>
+        </div>
+
+    </div>
+    </div>
+
+<br><br><br>
+<script>
+
+    var teams =[];
+    var row_count=0;
+    var html_str = "";
+
+    $(function () {
+
+        $.get('live-matches',function (data,status) {
+
+            if(data[1] == '<')
+            {
+                alert("Service temporarily unavailable!!" +"\nPlease try again later");
+                window.location.href="index.html";
+            }
+
+            teams = JSON.parse(data);
+            if(teams.length==0)
+            {
+                alert("currently no matches are live.\n Refer our recently concluded and news section");
+                window.location.href="index.html";
+            }
+            var i,j,k,l;
+            j=1;k=2;l=3;
+            row_count  = Math.ceil(teams.length/3);
+            for(i=1;i<=row_count;i++)
+            {
+                 html_str  +=  '<div class="row" id="r'+ j + '"'+ ' style="display: none">' +'<br>'+
+                        '<div class="col-sm-3" id="d'+j+'"' +'style=" display:none ;  background-color: yellowgreen ; box-shadow: 8px 8px 15px black" >'+
+                        '<h2 align="center">Teams Playing</h2><br>'+
+                        '<p align="center" id="p' +j+'"' + '></p>'+
+                        '<p id="s' + j+'"' + ' onclick="func(' + j + ')"><a>click to view or update score</a></p>'+
+                        '<p id ="si' +j+'"' + '></p>'+
+                        '<p id="de'+j+'"' + '></p>'+
+                        ' </div>'+
+                         '<div class="col-sm-1"></div>' +
+                         '<div class="col-sm-3"  id="d' +k+'"' + 'style="background-color: yellowgreen ; box-shadow: 8px 8px 15px black;display: none">'+
+                         '<h2 align="center">Teams Playing</h2><br>'+
+                         '<p align="center" id="p' +k+'"' + '></p>'+
+
+                         '<p id="s' + k+'"' + ' onclick="func(' + k + ')"><a>click to view or update score</a></p>'+
+                         ' <p id ="si' +k +'"' + '></p>'+
+
+                         '<p id="de'+ k+'"' + '></p>'+
+                         '</div>'+
+                         ' <div class="col-sm-1"></div>'+
+                         '<div class="col-sm-3" id="d' +l+'"' +'style="background-color: yellowgreen ; box-shadow: 8px 8px 15px black;display: none">'+
+                         '<h2 align="center">Teams Playing</h2><br>'+
+                         '<p align="center" id="p' +l+'"' +'></p>'+
+                         ' <p id="s'+l+'"' +' onclick="func(' + l + ')"><a>click to view or update score</a></p>'+
+                         '<p id ="si'+l+'"' +'></p>'+
+                         ' <p id="de'+l+'"' +'></p>'+
+                         ' </div>'+
+                         '</div>'+'<br><br><br><br>';
+
+                j+=3;k+=3;l+=3;
+
+            }
+
+            $("#row").append(html_str);
+            for( i=1;i<=teams.length;i++)
+            {
+                var str = teams[i-1].t1 + " VS " + teams[i-1].t2;
+                $("#p" + i).html(str);
+                $("#r" + i).css("display","block");
+                $("#d" + i).css("display","block");
+            }
+
+
+        });
+
+
+    });
+
+    function func(x) {
+
+        $.get('/get-scores',{id:teams[x-1].id},function (data,status) {
+            var arr =[];
+            arr = JSON.parse(data);
+            $("#si"+x).html(arr[0].si);
+            $("#de"+x).html(arr[0].de);
+        });
+    }
+
+
+</script>
+</body>
+</html>
