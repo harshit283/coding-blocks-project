@@ -113,7 +113,6 @@
         }
 
 
-
     </style>
 
 
@@ -162,12 +161,12 @@
     <br><br><br><br>
 
 
-    <div class="btn-group btn-lg btn-group-justified">
-        <a  class="btn btn-success" id="1">Interviews</a>
-        <a  class="btn btn-success" id="2">Headlines</a>
-        <a  class="btn btn-success" id="3">Featured News</a>
-    </div>
 
+    <div class="btn-group btn-lg btn-group-justified" id="button1" align="center">
+        <a  class="btn btn-success btn-lg" id="1" title="READ ABOUT INTERVIEWS" style="box-shadow: 8px 8px 15px black">Interviews</a>
+        <a  class="btn btn-success btn-lg" id="2" style="box-shadow: 8px 8px 15px black">Headlines</a>
+        <a  class="btn btn-success btn-lg" id="3" style="box-shadow: 8px 8px 15px black">Featured News</a>
+    </div>
 
     <br><br><br><br>
     <div class="row" >
@@ -191,7 +190,7 @@
         </div>
     </div>
 
-   </div>
+</div>
 <script>
 
     var cnt=1;
@@ -208,22 +207,21 @@
         $("#top2").css("display","none");
         callback("");
     }
-    
+
     $("#2").click(function () {
 
-         initialise(function () {
-             $.get('/hl1',function (data,status) {
-                 window.location.href="#heading";
-                 $("#heading").text("Headlines");
-                 $("#more2").css("display","block");
-                 $("#top2").css("display","block");
-                 $("#div2").html(data);
-                 cnt++;
-             })
-         });
-
+        initialise(function () {
+            $.get('/hl1',function (data,status) {
+                window.location.href="#heading";
+                $("#heading").text("Headlines");
+                $("#more2").css("display","block");
+                $("#top2").css("display","block");
+                $("#div2").html(data);
+                $("#div2 a").href("#");
+                cnt++;
+            })
+        });
     });
-
 
     $("#more2").click(function () {
 
@@ -231,6 +229,7 @@
         {
             $.get('/hl2',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").href("#");
                 cnt++;
             });
         }
@@ -238,6 +237,7 @@
         {
             $.get('/hl3',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").href("#");
                 cnt++;
             });
         }
