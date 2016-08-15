@@ -154,38 +154,56 @@
 
         <div class="col-sm-12">
 
-            <h1 align="center" id="heading">Latest News</h1>
+            <h1 align="center" id="heading">Cricket News</h1>
 
         </div>
     </div>
     <br><br><br><br>
 
 
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4 btn-success" id="1">
+        <h2 align="center" style="font-family:Georgia" >INTERVIEWS</h2>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4 btn-success" id="2">
+        <h2 align="center" style="font-family:Georgia">HEADLINES</h2>
+    </div>
+    <div class="col-sm-1"></div>
 
-    <div class="btn-group btn-lg btn-group-justified" id="button1" align="center">
-        <a  class="btn btn-success btn-lg" id="1" title="READ ABOUT INTERVIEWS" style="box-shadow: 8px 8px 15px black">Interviews</a>
-        <a  class="btn btn-success btn-lg" id="2" style="box-shadow: 8px 8px 15px black">Headlines</a>
-        <a  class="btn btn-success btn-lg" id="3" style="box-shadow: 8px 8px 15px black">Featured News</a>
+</div>
+    <br><br>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 btn-success" id="3">
+            <h2 align="center" style="font-family:Georgia" >FEATURED NEWS</h2>
+        </div>
+        <div class="col-sm-4"></div>
     </div>
 
-    <br><br><br><br>
-    <div class="row" >
 
+
+<div class="container-fluid">
+
+    <br><br><br><br>
+    <div class="row">
         <div class="col-sm-1"></div>
 
         <div class="col-sm-10" id="div2" style="background-color: whitesmoke"></div>
         <div class="col-sm-1"></div>
-
     </div>
 
+    <br>
     <div class="row">
+        <div class="col-sm-1"></div>
         <div class="col-sm-2">
-            <button  class="btn-primary btn-lg" style="display: none" id="more">Show more</button>
-            <button  class="btn-primary btn-lg" style="display: none" id="more2">Show more</button>
+            <button  class="btn-primary btn-lg" style="display: none" id="more">Show More</button>
+            <button  class="btn-primary btn-lg" style="display: none" id="more2">Show More</button>
         </div>
-        <div class="col-sm-8"></div>
+        <div class="col-sm-7"></div>
         <div class="col-sm-2">
-            <button  class="btn-primary btn-lg" style="display: none" id="top">GO to Top</button>
+            <button  class="btn-primary btn-lg" style="display: none" id="top">Go to Top</button>
             <button  class="btn-primary btn-lg" style="display: none" id="top2">Go to Top</button>
         </div>
     </div>
@@ -194,9 +212,6 @@
 <script>
 
     var cnt=1;
-
-
-
 
     function initialise(callback) {
 
@@ -217,7 +232,9 @@
                 $("#more2").css("display","block");
                 $("#top2").css("display","block");
                 $("#div2").html(data);
-                $("#div2 a").href("#");
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
                 cnt++;
             })
         });
@@ -229,7 +246,8 @@
         {
             $.get('/hl2',function (data,status) {
                 $("#div2").append(data);
-                $("#div2 a").href("#");
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -237,7 +255,8 @@
         {
             $.get('/hl3',function (data,status) {
                 $("#div2").append(data);
-                $("#div2 a").href("#");
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -245,6 +264,8 @@
         {
             $.get('/hl4',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -253,6 +274,8 @@
         {
             $.get('/hl5',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -261,6 +284,8 @@
         {
             $.get('/hl6',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -268,6 +293,8 @@
         {
             $.get('/hl7',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -275,6 +302,8 @@
         {
             $.get('/hl8',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -283,6 +312,8 @@
         {
             $.get('/hl9',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -292,6 +323,8 @@
             $.get('/hl10',function (data,status) {
                 $("#div2").append(data);
                 cnt++;
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 $("#more").css("disabled");
             });
         }
@@ -307,6 +340,8 @@
                 $("#div2").html(data);
                 $("#more").css("display","block");
                 $("#top").css("display","block");
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             })
         });
@@ -320,6 +355,8 @@
         {
             $.get('/interview2',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
                 cnt++;
             });
         }
@@ -327,6 +364,9 @@
         {
             $.get('/interview3',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
                 cnt++;
             });
         }
@@ -334,6 +374,9 @@
         {
             $.get('/interview4',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
                 cnt++;
             });
         }
@@ -342,6 +385,10 @@
         {
             $.get('/interview5',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
+
                 cnt++;
             });
         }
@@ -350,6 +397,9 @@
         {
             $.get('/interview6',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
                 cnt++;
             });
         }
@@ -357,6 +407,9 @@
         {
             $.get('/interview7',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
                 cnt++;
             });
         }
@@ -364,6 +417,9 @@
         {
             $.get('/interview8',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").href("#");
+                $("#div2 img").attr("class","img-responsive");
+
                 cnt++;
             });
         }
@@ -372,6 +428,9 @@
         {
             $.get('/interview9',function (data,status) {
                 $("#div2").append(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
                 cnt++;
             });
         }
@@ -382,6 +441,9 @@
                 $("#div2").append(data);
                 cnt++;
                 $("#more").css("disabled");
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
+
             });
         }
 
@@ -390,11 +452,12 @@
     $("#3").click(function () {
 
         initialise(function () {
-
             $.get('/featured',function (data,status) {
                 window.location.href="#heading";
                 $("#heading").text("Featured News");
                 $("#div2").html(data);
+                $("#div2 a").attr("href","#");
+                $("#div2 img").attr("class","img-responsive");
             });
         });
     });

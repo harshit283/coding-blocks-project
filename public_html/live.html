@@ -4,98 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
     <title>CRICKET Home</title>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
-
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
-
-    <style>
+</head>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
 
 
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
 
-        .navbar-default
-        {
-            background-color: purple;
-            border-color: rebeccapurple;
-        }
-        .navbar-default .navbar-brand {
+<style>
+    .navbar-default
+    {
+        background-color: purple;
+        border-color: rebeccapurple;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        font-size: 1.3em;
+        color: #ffbbbc;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        font-size: 1.3em;
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    @media (max-width: 767px) {
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
             color: #ecf0f1;
-            font-size: 1.3em;
         }
-        .navbar-default .navbar-brand:hover,
-        .navbar-default .navbar-brand:focus {
-            font-size: 1.3em;
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
             color: #ffbbbc;
         }
-        .navbar-default .navbar-text {
-            color: #ecf0f1;
-            font-size: 1.3em;
-        }
-        .navbar-default .navbar-nav > li > a {
-            color: #ecf0f1;
-            font-size: 1.3em;
-        }
-        .navbar-default .navbar-nav > li > a:hover,
-        .navbar-default .navbar-nav > li > a:focus {
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
             color: #ffbbbc;
-            font-size: 1.3em;
-        }
-        .navbar-default .navbar-nav > .active > a,
-        .navbar-default .navbar-nav > .active > a:hover,
-        .navbar-default .navbar-nav > .active > a:focus {
-            color: #ffbbbc;
-            font-size: 1.3em;
             background-color: #c02b94;
         }
-        .navbar-default .navbar-nav > .open > a,
-        .navbar-default .navbar-nav > .open > a:hover,
-        .navbar-default .navbar-nav > .open > a:focus {
-            color: #ffbbbc;
-            font-size: 1.3em;
-            background-color: #c02b94;
-        }
-        .navbar-default .navbar-toggle {
-            border-color: #c02b94;
-        }
-        .navbar-default .navbar-toggle:hover,
-        .navbar-default .navbar-toggle:focus {
-            background-color: #c02b94;
-        }
-        .navbar-default .navbar-toggle .icon-bar {
-            background-color: #ecf0f1;
-        }
-        .navbar-default .navbar-collapse,
-        .navbar-default .navbar-form {
-            border-color: #ecf0f1;
-        }
-        .navbar-default .navbar-link {
-            font-size: 1.3em;
-            color: #ecf0f1;
-        }
-        .navbar-default .navbar-link:hover {
-            color: #ffbbbc;
-            font-size: 1.3em;
-        }
-
-
-        @media (max-width: 767px) {
-
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-                color: #ecf0f1;
-            }
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-            .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-                color: #ffbbbc;
-            }
-            .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-            .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-                color: #ffbbbc;
-                background-color: #c02b94;
-            }
-        }
-
+    }
         #heading
         {
             font-size: 90px;
@@ -160,8 +154,8 @@
     </div>
 </nav>
 <div class="container">
-    <br><br>
-    <div class="row" id="row">
+
+    <div class="row">
 
         <div class="col-sm-12">
 
@@ -171,17 +165,19 @@
 
     </div>
     </div>
+<div class="container" id="my-container"></div>
+
 
 <br><br><br>
 <script>
 
-    var teams =[];
+   var teams =[];
     var row_count=0;
     var html_str = "";
 
     $(function () {
 
-        $.get('live-matches',function (data,status) {
+       $.get('live-matches',function (data,status) {
 
             if(data[1] == '<')
             {
@@ -209,7 +205,7 @@
                         '<p id="de'+j+'"' + '></p>'+
                         ' </div>'+
                          '<div class="col-sm-1"></div>' +
-                         '<div class="col-sm-3"  id="d' +k+'"' + 'style="background-color: yellowgreen ; box-shadow: 8px 8px 15px black;display: none">'+
+                         '<div class="col-sm-4"  id="d' +k+'"' + 'style="background-color: yellowgreen ; box-shadow: 8px 8px 15px black;display: none">'+
                          '<h2 align="center">Teams Playing</h2><br>'+
                          '<p align="center" id="p' +k+'"' + '></p>'+
 
@@ -232,7 +228,7 @@
 
             }
 
-            $("#row").append(html_str);
+            $("#my-container").html(html_str);
             for( i=1;i<=teams.length;i++)
             {
                 var str = teams[i-1].t1 + " VS " + teams[i-1].t2;
@@ -241,9 +237,7 @@
                 $("#d" + i).css("display","block");
             }
 
-
         });
-
 
     });
 
@@ -256,7 +250,6 @@
             $("#de"+x).html(arr[0].de);
         });
     }
-
 
 </script>
 </body>

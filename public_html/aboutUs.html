@@ -91,9 +91,29 @@
     body
     {
         background: url("assets/img/backgrounds/bg6.jpg");
-        background-size: 100%;
+        background-size:cover;
     }
 
+    #upper
+    {
+        font-size: 1.5em;
+    }
+    #lower
+    {
+        font-size:1.5em;
+    }
+
+    @media screen and (max-width:700px)
+    {
+        #upper
+        {
+            font-size:1em;
+        }
+        #lower
+        {
+            font-size: 1em;
+        }
+    }
 
 </style>
 <body>
@@ -133,36 +153,16 @@
         <div class="row">
 
             <div class="col-sm-2">
-
-
-
             </div>
 
-            <div class="col-sm-8" style="font-size: 1.5em ;background-color: yellowgreen; color: darkblue; text-align: justify">
-
-
-
-                   <img src="assets/img/backgrounds/photo.jpg" class="img-circle img-responsive" title="Himanshu Gupta" style="display: inline-block">
-
-
-
-
-
-
-
-
-
-
+            <div class="col-sm-8" style="background-color: yellowgreen; color: darkblue; text-align: justify" id="upper">
+                <img src="assets/img/backgrounds/photo.jpg" class="img-circle img-responsive" title="Himanshu Gupta" style="display: inline-block">
                <br><br>
 
                 We are just  a group of two. Our names are Harshit Aggarwal and Himanshu Gupta.
                 We both are Delhi Technological University CS Students. We were able to build this project with the great help and exceptional teaching of Arnav Sir.
 
-
-
-
             </div>
-
 
 
             <div class="col-sm-2">
@@ -182,27 +182,20 @@
 
             </div>
 
-            <div class="col-sm-8" style="font-size: 1.5em ;background-color: yellowgreen; color: darkblue; text-align: justify">
+            <div class="col-sm-8" style="background-color: yellowgreen; color: darkblue; text-align: justify" id="lower">
 
             Contact Us :
                 <br>
                 Harshit Aggarwal : <a href="mailto:harshitaggarwal283@yahoo.com"> harshitaggarwal283@yahoo.com</a><br>
                 Himanshu Gupta : <a href="mailto:himanshugupta1997@gmail.com"> himanshugupta1997@gmail.com</a>
 
-
             </div>
 
-
-
             <div class="col-sm-2">
-
-
 
             </div>
 
         </div>
-
-
 
 
     </div>
