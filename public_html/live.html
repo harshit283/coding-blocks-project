@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
-    <title>CRICKET Home</title>
+    <title>Live Scores</title>
 </head>
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -181,7 +181,7 @@
 
             if(data[1] == '<')
             {
-                alert("Service temporarily unavailable!!" +"\nPlease try again later");
+                alert("Service temporarily unavailable!!" +"\n\nThis site extracts scores from an external api which usually\n hibernates daily for about 10 hours.\nPlease try after some time.");
                 window.location.href="index.html";
             }
 
