@@ -10,20 +10,24 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-xs-2"></div>
+        <div class="col-xs-2">  <br>
+            <br><br><br>
+
+        </div>
         <div class="col-xs-8" >
             <table class="table  table-bordered" id="1"></table>
         </div>
         <div class="col-xs-2"></div>
     </div>
 </div>
-<script src="../jquery.js"></script>
+<script src="../jquery.js"></script><script src="../../js/bootstrap.js"></script>
 <script>
 
     $(function () {
 
         $('#1').html("Loading...");
-        $.get('/odi-ar-7',function (data,status) {
+
+        $.get('/odi-ar-7',{username : localStorage.getItem('username')},function (data,status) {
 
             $("#1").html(data);
             var T = $('table');

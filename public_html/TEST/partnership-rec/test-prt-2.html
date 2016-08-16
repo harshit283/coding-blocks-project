@@ -21,9 +21,12 @@
 <script>
 
     $(function () {
-
         $('#1').html("Loading...");
-        $.get('/test-ptr-2',function (data,status) {
+        $('.btn').click(function () {
+
+            window.location.href = "prt-rec.html";
+        });
+        $.get('/test-ptr-2',{username : localStorage.getItem('username')} ,function (data,status) {
 
             $("#1").html(data);
             var T = $('table');

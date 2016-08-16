@@ -285,6 +285,9 @@ function  login(obj, callback) {
 
 function  addFavourites(username, string, path, callback) {
 
+    console.log(username);
+    console.log(string);
+    console.log(path);
     //console.log("Add Favourites Called");
     mongoClient.connect(url, function (err, db)
     {
@@ -299,6 +302,8 @@ function  addFavourites(username, string, path, callback) {
         //console.log("PAth");
         //console.log(path);
         //console.log(string);
+
+
         if(username == null || username == "")
         {
             db.close();
@@ -310,6 +315,7 @@ function  addFavourites(username, string, path, callback) {
             assert.equal(err,null);
             //console.log("result of add favourites function");
             //console.log(result[0]);
+            console.log(result.length);
             if(result == undefined || typeof result == 'undefined' || typeof result == undefined || result == 'undefined' || result == null)
             {
                 db.close();
@@ -322,7 +328,7 @@ function  addFavourites(username, string, path, callback) {
             handler.deleteOne({'username': username}, function (data, status) {
 
                 //console.log(data);
-                //console.log("deleted");
+                console.log("deleted");
                 handler.insertOne({
 
                     'username':result[0].username,
@@ -334,7 +340,7 @@ function  addFavourites(username, string, path, callback) {
 
                 }, function (err, result) {
 
-                    //console.log("Added Favourites Everything Fine");
+                    console.log("Added Favourites Everything Fine");
                     callback(1);
 
                 })
@@ -380,7 +386,6 @@ function  searchFavourites(username, callback) {
 
 
 module.exports = {
-
     check_user: check_user,
     new_user : new_user,
     fetchUser : fetchUser,

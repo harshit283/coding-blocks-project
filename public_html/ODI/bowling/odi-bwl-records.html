@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
-    <title>Odi Bowling Records</title>
+    <title>CRICKET Home</title>
 </head>
 <script src="../../js/jquery.js"></script>
 <script src="../../js/bootstrap.js"></script>
@@ -116,7 +116,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="../../index.html" id="home-button">Home</a></li>
                 <li>
-                    <a href="#">About Us </a>
+                    <a href="../../aboutUs.html">About Us </a>
                 </li>
                 <li><a href="../../project.html">Project</a></li>
                 <li><a href="../../Resources.html">Resources</a></li>
@@ -266,6 +266,12 @@
 
     $(function () {
 
+        /*if (localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+        {
+            alert("Please login to search database");
+            window.location.href = "../../login.html";
+        }
+        */
         if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
         {
             var string = '<div class="container-fluid">' +

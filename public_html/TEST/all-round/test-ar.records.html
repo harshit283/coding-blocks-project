@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
-    <title>Test Allround Records</title>
+    <title>CRICKET Home</title>
 </head>
 <script src="../../js/jquery.js"></script>
 <script src="../../js/bootstrap.js"></script>
@@ -116,7 +116,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="../../index.html" id="home-button">Home</a></li>
                 <li>
-                    <a href="#">About Us </a>
+                    <a href="../../aboutUs.html">About Us </a>
                 </li>
                 <li><a href="../../project.html">Project</a></li>
                 <li><a href="../../Resources.html">Resources</a></li>
@@ -132,11 +132,13 @@
     <div class="row">
 
         <div class="col-sm-12">
-                <h1 align="center" style="font-family: Serif; color: red;font-size: 80px" >All-rounder  Stats</h1>
+            <div class="jumbotron">
+                <h1 align="center" >All-rounder  Stats</h1>
+            </div>
         </div>
 
     </div>
-<br><br>
+
     <div class="row">
         <div class="col-sm-3">
             <table class="table table-responsive table-bordered table-hover" >
@@ -218,6 +220,13 @@
 
     $(function () {
 
+/*
+        if (localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+        {
+            alert("Please login to search database");
+            window.location.href = "../../login.html";
+        }
+      */
         if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
         {
             var string = '<div class="container-fluid">' +

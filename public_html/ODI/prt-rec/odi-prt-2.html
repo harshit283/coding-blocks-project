@@ -10,7 +10,9 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-xs-2"></div>
+        <div class="col-xs-2"><br>
+            <br><br><br>
+            </div>
         <div class="col-xs-8" >
             <table class="table  table-bordered" id="1"></table>
         </div>
@@ -21,9 +23,12 @@
 <script>
 
     $(function () {
+        $('.btn').click(function () {
 
+            window.location.href = "odi-prt-rec.html";
+        });
         $('#1').html("Loading...");
-        $.get('/odi-ptr-2',function (data,status) {
+        $.get('/odi-ptr-2',{username : localStorage.getItem('username')} ,function (data,status) {
 
             $("#1").html(data);
             var T = $('table');

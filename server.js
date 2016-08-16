@@ -2418,6 +2418,7 @@ app.get('/test-ar-10',function (req,res) {
 
 app.get('/odi-ar-1',function (req,res) {
 
+    console.log("odi alround called");
     var url ="http://stats.espncricinfo.com/ci/content/records/282787.html";
     get_records(url,function (result) {
         dbhandler.addFavourites(req.query.username,'odi-ar-1','ODI/all-round/odi-ar-1.html',function (response) {
