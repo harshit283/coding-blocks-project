@@ -90,6 +90,11 @@
             color: #ffbbbc;
             background-color: #c02b94;
         }
+
+        .btn
+        {
+            font-size: 1.5em;
+        }
     }
 
     @media screen and (max-width: 992px)
@@ -115,7 +120,7 @@
     body
     {
         background: url("assets/img/backgrounds/woman1.jpg");
-        background-size: 100%;
+        background-size: 130%;
     }
 
 </style>
@@ -256,7 +261,7 @@
 
         <div class="col-sm-8">
             <a href="icc-women-championship-results.html">
-                <button style="font-size: 2.5em" class="btn btn-danger btn-block">ICC Women Championships</button></a>
+                <button style="font-size: 2.5em" class="btn btn-danger btn-block" id="c">ICC Women Championships</button></a>
         </div>
 
         <div class="col-sm-2"></div>
@@ -270,6 +275,29 @@
 </div>
 
 <script>
+
+    function check() {
+
+//        console.log(window.innerWidth);
+//        console.log("hello");
+
+        if(window.innerWidth < 1000)
+        {
+            $('.btn').css({'font-size' : '2em'});
+            $('#c').css({'font-size' : '1.5em'});
+
+        }
+        else
+        {
+            $('#c').css({'font-size' : '2.5em'});
+
+            $('.btn').css({'font-size' : '2.5em'});
+
+        }
+
+    }
+
+    var m =  setInterval(check, 200);
 
 
 </script>
