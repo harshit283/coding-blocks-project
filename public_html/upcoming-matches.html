@@ -192,7 +192,7 @@
     var f1=false,f2=false,f3=false;
 
     function change_data(data,val,cb) {
-        $("#t"+val).html(data).css("font-size",20).css("font-family","Arial");
+        $("#t"+val).html(data).css("font-family","Arial");
         var el = $("#t"+val+" a");
         var i;
         for(i=0;i<el.length;i++)
@@ -200,7 +200,7 @@
             if(el.eq(i).attr("href")[0]!='h')
                 el.eq(i).attr("href","https://cricket.yahoo.com"+el.eq(i).attr("href"));
             el.eq(i).attr("target","_blank");
-            el.eq(i).css("font-family","fantasy").css("font-size",25).css("font-style","italic");
+            el.eq(i).css("font-family","fantasy").css("font-style","italic");
         }
 
         cnt++;

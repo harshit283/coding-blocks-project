@@ -157,15 +157,13 @@
 <div class="container" style="display: none" id="table">
 
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-sm-2">
             <button class="btn btn-danger" id="back">BACK</button>
         </div>
-        <div class="col-xs-8">
-            <table class="table  table-bordered" id="t1"></table>
+        <div class="col-sm-8">
+            <table class="table  table-bordered table-responsive" id="t1"></table>
         </div>
-        <div class="col-xs-2"></div>
-
-    </div>
+        <div class="col-sm-2"></div>
 
 </div>
 <br><br>
@@ -256,13 +254,13 @@
         el=$("#t1 td");
         for(i=0;i<el.length;i++)
         {
-            el.eq(i).css("font-family","Abyssinica SIL").css("font-size",15);
+            el.eq(i).css("font-family","Abyssinica SIL");
         }
 
         el=$("#t1 thead");
         for(i=0;i<el.length;i++)
         {
-            el.eq(i).css("font-family","Serif").css("font-size",17);
+            el.eq(i).css("font-family","Serif");
         }
     }
 
@@ -364,7 +362,7 @@
 <script>
 
 
-    $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center', 'font-size' : '1.3em'});
+    $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center'});
     $('h2').css({'color': 'purple', 'text-align' : 'center'});
 
 </script>
