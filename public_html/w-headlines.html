@@ -111,7 +111,7 @@
     figure
     {
         color: white;
-        background-color: purple;
+        background-color:purple;
 
     }
 
@@ -185,7 +185,7 @@
 <div class="container" id="d1" style="display:none;">
     <div class="row">
         <div class="col-sm-1"></div>
-        <div class="col-sm-10"  >
+        <div class="col-sm-10">
             <ul id="t1"></ul>
         </div>
         <div class="col-sm-1"></div>
@@ -254,22 +254,22 @@ function show_news(data,callback) {
 
     $("#d"+cnt).css("display","block");
     $("#t"+cnt).html(data);
-    $("#t"+cnt+" img").css("align","left").css("height",152).css("width",229).addClass("img-responsive");
+    $("#t"+cnt+" img").css("align","left").addClass("img-responsive");
 
     var el = $("#t"+cnt+" a");
 
     for(var i=0;i<el.length;i++)
     {
         el.eq(i).attr("href","http://www.icc-cricket.com/search?q=women%20cricket&page=1"+el.eq(i).attr("href"));
-        el.eq(i).css("font-size",40).css("font-family","Serif").css("color","red").css("background-color","white").attr("target","_blank");
+        el.eq(i).css("font-size",'200%').css("font-family","Serif").css("color","red").css("background-color","white").attr("target","_blank");
     }
 
-    $("#t" + cnt +" figcaption").css("font-weight","bold").css("font-size",20).css("font-family","Arial");
+    $("#t" + cnt +" figcaption").css("font-weight","bold").css("font-family","Arial");
     $("#t" +cnt + " figcaption").append('<br><br>');
 
     $('figure a').css({'backgound-color' : 'white', 'color' : 'purple'});
 
-    $('img').css({'width' : '33%', 'margin' : '10px', 'margin-left' : '33%'});
+    $('img').css({'width' : '33%', 'margin-left' : '33%'});
     cnt++;
   callback();
 
