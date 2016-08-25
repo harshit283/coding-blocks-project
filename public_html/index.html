@@ -104,13 +104,19 @@
         {
             display: none;
         }
+
+    }
+
+    @media screen and (max-width: 1020px) {
+
         #heading
         {
             font-size: 4.2em;
         }
+
     }
 
-    .accordian
+    /*.accordian
     {
         transition: 0.4s;
         cursor: pointer;
@@ -128,7 +134,13 @@
     {
         opacity: 1;
         max-height: 500px;
+    }*/
+
+    body
+    {
+        background-color: lightyellow;
     }
+
 </style>
 
 <body>
@@ -151,7 +163,6 @@
                     <a href="aboutUs.html">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-                <li><a href="Resources.html">Resources</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -168,7 +179,7 @@
 
         <div class="col-sm-3" id="row1-div1">
 
-            <img src="assets/logo3.jpg" height="150px" class="img-circle img-responsive" id="top-image1">
+            <img src="assets/logo3.jpg" height="140px" class="img-circle img-responsive" id="top-image1">
 
         </div>
         <div class="col-sm-1"></div>
@@ -197,37 +208,98 @@
         </div>
 
     </div>
-    <div class="row accordian" id="row3" style="margin-top: 10px; background-color: blue; height: 35px; color: chartreuse;
-    text-align: center; font-size: 1.6em; font-weight: 900;">Live Scores</div>
-    <div class="row panel" style="color: red;font-family: Arial;font-size: 18px;font-weight: bold">
-        You can check live scores of matches of all three formats of the game including international,domestic,leagues
-        as well as county cricket&nbsp <a href="live.html">Click to view </a></div>
-    <div class="row accordian" id="row4" style="margin-top: 10px; background-color: blue; height: 35px; color: chartreuse;
-    text-align: center; font-size: 1.6em; font-weight: 900;">Upcoming Matches</div>
-    <div class="row panel"  style="color: red;font-family: Arial;font-size: 18px;font-weight: bold">
-                                           You can view details  of upcoming matches and series going to be held between all cricket playing nations.
-                                                            All the three formats of the game have been covered.
-                                                                 You can check out venue , date , timings etc. &nbsp <a href="upcoming-matches.html">Click to view </a></div>
 
-    <div class="row accordian" id="row5" style="margin-top: 10px; background-color: blue; height: 35px; color: chartreuse;
-    text-align: center; font-size: 1.6em; font-weight: 900;">Recently Concluded</div>
-    <div class="row panel"  style="color: red;font-family: Arial;font-size: 18px;font-weight: bold">
-                                           You can view details  of recently concluded matches and series of all cricket playing nations.
+    <br>
 
-                                           You can check out results , victory margins in terms of runs and wickets etc. <a href="concluded-matches.html">Click to view </a></div>
+    <div class="row">
+        <br>
+
+        <div class="col-sm-1">
 
 
-    <div class="row accordian" id="row6" style="margin-top: 10px; background-color: blue; height: 35px; color: chartreuse;
-    text-align: center; font-size: 1.6em; font-weight: 900;">News</div>
-    <div class="row panel"  style="color: red;font-family: Arial;font-size: 18px;font-weight: bold">
-                                                        You can check out latest cricket news and results of concluded.
-                                           You can also read interviews of some pupular cricketers , sports analysts , jouranalists etc.<a href="news.html">Click to view</a></div>
 
-    <div class="row accordian" id="row7" style="margin-top: 10px; background-color: blue; height: 35px; color: chartreuse;
-    text-align: center; font-size: 1.6em; font-weight: 900;">Search Stats</div>
-    <div class="row panel"  style="color: red;font-family: Arial;font-size: 18px;font-weight: bold">
-                                              You can search for a plethora of ODI and Test match records and statistics of all cricket playing nations.
-                                                                Records of all the aspects of the game have been covered&nbsp <a href="stats.html">Click to view </a></div>
+        </div>
+
+        <div class="col-sm-4" style="background-color: Menu; box-shadow: 10px 10px 5px lightgrey; box-sizing: border-box">
+            <br>
+
+            <a href="news.html"> <button class="btn btn-block bg-primary" style="background-color: purple; color: whitesmoke; font-size: 2em; font-weight: 500">
+
+                News
+
+            </button></a>
+
+            <br>
+
+            <a href="stats.html"> <button class="btn btn-block bg-primary" style="background-color:  purple;color: whitesmoke; font-size: 2em; font-weight: 500">
+
+                Statistics
+
+            </button></a>
+            <br>
+
+            <!--<a href="women-stats.html"> <button class="btn btn-block bg-primary" style="background-color:  purple;color: whitesmoke; font-size: 2em; font-weight: 500">!-->
+
+            <a href="woman.html"> <button class="btn btn-block bg-primary" style="background-color:  purple;color: whitesmoke; font-size: 2em; font-weight: 500">
+
+                Women Cricket
+
+            </button></a>
+
+
+
+            <br>
+        </div>
+
+        <div class="col-sm-2">
+
+
+
+        </div>
+
+        <div class="col-sm-4" style="background-color : Menu; box-shadow: 10px 10px 5px lightgrey; box-sizing: border-box">
+            <br>
+
+            <a href="live.html"> <button class="btn btn-block bg-primary" style="background-color: purple; color: whitesmoke; font-size: 2em; font-weight: 500">
+
+                Live Matches
+
+
+            </button></a>
+
+            <br>
+
+            <a href="upcoming-matches.html"> <button class="btn btn-block bg-primary" style="background-color:  purple;color: whitesmoke; font-size: 2em; font-weight: 500">
+
+                Upcoming Matches
+
+            </button></a>
+
+            <br>
+
+            <a href="concluded-matches.html"> <button class="btn btn-block bg-primary" style="background-color:  purple;color: whitesmoke; font-size: 2em; font-weight: 500">
+
+                Results
+
+            </button></a>
+
+
+
+
+
+            <br>
+        </div>
+
+
+        <div class="col-sm-1">
+
+
+
+        </div>
+
+        <br>
+
+    </div>
 
 
 </div>
@@ -241,15 +313,6 @@
             alert("You are Logged out!!");
         }
         localStorage.clear();
-        var acc = document.getElementsByClassName("accordian");
-        var i;
-        console.log(acc);
-        for (i = 0; i < acc.length; i++) {
-            acc[i].onclick = function(){
-                this.classList.toggle("active");
-                this.nextElementSibling.classList.toggle("show");
-            }
-        }
 
     });
 

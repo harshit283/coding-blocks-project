@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Resources</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>Cricket Stats</title>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
 </head>
-
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script src="jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-
 <style>
 
     .navbar-default
@@ -74,7 +75,14 @@
         color: #ffbbbc;
         font-size: 1.3em;
     }
+
+    h1
+    {
+        font-size: 80px;
+    }
+
     @media (max-width: 767px) {
+
         .navbar-default .navbar-nav .open .dropdown-menu > li > a {
             color: #ecf0f1;
         }
@@ -88,30 +96,23 @@
             color: #ffbbbc;
             background-color: #c02b94;
         }
+
+        h1
+        {
+            font-size: 50px;
+        }
+
+
+
     }
 
-    
-    mark
-    {
-        font-size: 2em;
-        color: red;
-    }
 
-    a
-    {
-        font-size: 2em;
-        color: darkgreen;
-    }
-    
-    body
-    {
-        background : url("assets/img/backgrounds/bg3.jpg");
-        background-size: cover;
-    }
 
 
 </style>
-<body>
+<body style="background-color: whitesmoke;">
+
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -126,10 +127,9 @@
             <ul class="nav navbar-nav">
                 <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="#">About Us </a>
+                    <a href="aboutUs.html">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-                <li class="active"><a href="Resources.html">Resources</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -139,59 +139,52 @@
     </div>
 </nav>
 
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <h1 align="center" style="font-family:'Abyssinica SIL'; font-style:italic ;color: #0068c3">ICC Women's Ranking</h1>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>
 <br><br><br>
 
-
-<div class="container-fluid">
-
-    <div class="row" id="row1">
-
-
-
-        <div class="col-sm-3" style="background-color: #2aabd2; text-align: center" id="row1-div2">
-                <br>
-            <mark>Cricket Records Scrapped From </mark>
-            <br><br><br>
-            <a href="http://www.espncricinfo.com/">Crick Info</a>
-            <br>
-
-        </div>
-        <br><br>
-        <div class="col-sm-1" id="row1-div3">
-
-
-
-        </div>
-
-        <div class="col-sm-4" style="background-color: #2aabd2; text-align: center" id="row1-div4">
-            <br>
-            <mark>Some Code Reference From</mark>
-            <br><br><br>
-            <a href="http://www.w3schools.com/">W3 Schools</a>
-            <br>
-        </div>
-        <br><br>
-        <div class="col-sm-1" id="row1-div5">
-
-
-
-        </div>
-
-        <div class="col-sm-3" style="background-color: #2aabd2; text-align: center" id="row1-div6">
-            <br>
-            <mark>Knowledge Scrapped From </mark>
-            <br><br><br>
-            <a href="https://www.facebook.com/championswimmer">Arnav Sir</a>
-            <br>
-        </div>
-        <br><br>
-
+<div class="container">
+    <div class="row">
 
     </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 img-responsive" id="t1" >
 
-
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
 </div>
+<script>
 
 
+    $(function () {
+
+        $("#t1").html('<h2 align="center">Loading...</h2>');
+        $.get('/w-rankings', function (data, status) {
+            $("#t1").html(data);
+            var el = $("#t1 iframe");
+            el.css("width",700).css("height",350);
+        });
+
+    });
+
+
+
+</script>
 </body>
+<style>
+    h3
+    {
+        color: #0068c3;
+        font-size: 2.2em;
+    }
+</style>
 </html>

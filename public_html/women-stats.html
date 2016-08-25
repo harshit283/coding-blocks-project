@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
-    <title>Cricket Records</title>
+    <title>Cricket Stats</title>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+
 </head>
-<script src="../../js/jquery.js"></script>
-<script src="../../js/bootstrap.js"></script>
-
-<link type="text/css" rel="stylesheet" href="../../css/bootstrap.css">
-
 <style>
-
-
 
     .navbar-default
     {
@@ -96,9 +96,19 @@
         }
     }
 
+    body
+    {
+        background: url("assets/img/backgrounds/bg7.jpg");
+        background-size: 100%;
+    }
+
+
+
+
+
+
 
 </style>
-
 <body>
 
 
@@ -110,130 +120,113 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../../index.html">Cricket</a>
+            <a class="navbar-brand" href="index.html">Cricket</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="../../index.html" id="home-button">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li>
-                    <a href="../../aboutUs.html">About Us </a>
+                    <a href="aboutUs.html">About Us </a>
                 </li>
-                <li><a href="../../project.html">Project</a></li>
+                <li><a href="project.html">Project</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="../../logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
-                <li><a id="log-out" href="../../index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+                <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
+
 <div class="container">
+    <br><br>
     <div class="row">
 
         <div class="col-sm-12">
-
-            <h1 align="center" style="font-family: Serif; font-size: 80px;color: red">Fielding-records</h1>
-
+            <h1 align="center" style="font-family: Serif ; font-size: 80px;color: blueviolet" >CRICKET STATS</h1>
         </div>
 
     </div>
     <br><br>
-
     <div class="row">
-        <div class="col-sm-5">
-            <table class="table table-responsive table-bordered table-hover" >
+
+        <div class="col-sm-5" style="background-color: white;box-shadow: 8px 8px 16px black; color: purple">
+            <h2 align="center">TEST MATCHES</h2>
+            <table class="table table-responsive table-bordered table-hover" id="t1">
+
                 <tbody >
-                <h2>Most catches</h2>
+
                 <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-1.html">Most catches in career</a></td>
+                    <td><a style="text-decoration: none" href="w-test/batting.html">Batting records</a></td>
                 </tr>
                 <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-2.html">Most catches in an innings</a></td>
+                    <td><a style="text-decoration: none" href="w-test/bowling.html">Bowling records</a></td>
                 </tr>
 
                 <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-3.html">Most catches in a series</a></td>
+                    <td> <a style="text-decoration: none" href="w-test/wicket-keeping.html">Wicketkeeping records</a></td>
                 </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="w-test/fielding.html">Fielding records</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="w-test/all-round.html">All-round records</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="w-test/partnership.html">Partnership records</a></td>
+                </tr>
+
+
                 </tbody>
             </table>
         </div>
 
         <div class="col-sm-2"></div>
 
-        <div class="col-sm-5">
-            <table class="table table-responsive table-bordered table-hover" >
-                <tbody>
+        <div class="col-sm-5" style="background-color: white;box-shadow: 8px 8px 16px black; color: purple;">
+            <h2 align="center">ODI</h2>
+            <table class="table table-responsive table-bordered table-hover">
 
-                <h2>Most substitute catches</h2>
+                <tbody >
 
                 <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-4.html">Most catches by a substitute in an innings</a></td>
+                    <td><a style="text-decoration: none" href="w-odi/batting.html">Batting records</a></td>
                 </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="w-odi/bowling.html">Bowling records</a></td>
+                </tr>
+
+                <tr>
+                    <td> <a style="text-decoration: none" href="w-odi/wicket-keeping.html">Wicketkeeping records</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" href="w-odi/fielding.html">Fielding records</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="w-odi/all-round.html">All-round records</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" href="w-odi/partnership.html">Partnership records</a></td>
+                </tr>
+
+
                 </tbody>
             </table>
         </div>
 
+
     </div>
-
 </div>
+
 <script>
-
-    $(function () {
-
-        if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
-        {
-            var string = '<div class="container-fluid">' +
-                    ' <div class="navbar-header">' +
-                    '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">' +
-                    '<span class="icon-bar"></span>' +
-                    '<span class="icon-bar"></span>' +
-                    '   <span class="icon-bar"></span>' +
-                    ' </button>' +
-                    '<a class="navbar-brand" href="../../index.html">Cricket</a>' +
-                    '</div>' +
-                    '<div class="collapse navbar-collapse" id="myNavbar">'+
-                    ' <ul class="nav navbar-nav">'+
-                    '   <li ><a href="../../index.html">Home</a></li>' +
-                    '   <li>' +
-                    '   <a href="../../aboutUs.html">About Us </a>' +
-                    '</li>' +
-                    '<li><a href="../../project.html">Project</a></li>' +
-                    '</ul>' +
-                    '<ul class="nav navbar-nav navbar-right">' +
-                    '<li><a href="../../new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>'+
-                    '<li><a href="../../login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>' +
-                    '</ul>' +
-                    '</div>' +
-                    '</div>';
-            $('.navbar').html(string);
-        }
-
-    });
-
-</script>
-<script>
-
 
     $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center', 'font-size' : '1.3em'});
-    $('h2').css({'color': 'purple', 'text-align' : 'center'});
-    $('.col-sm-5').css({'box-shadow' : '8px 8px 16px black'});
-
+    $('a').css({'color' : 'white'});
 </script>
-
-
 </body>
-<style>
-
-    a
-    {
-        color: white;
-    }
-
-    a:hover
-    {
-        background-color: tomato;
-        color: white;
-    }
-
-</style>
 </html>

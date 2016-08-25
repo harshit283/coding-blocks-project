@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Us</title>
+    <title>Woman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <script src="jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <script src="jquery.js">
-    </script>
     <script src="js/bootstrap.js"></script>
 </head>
 <style>
+
     .navbar-default
     {
         background-color: purple;
@@ -73,7 +73,10 @@
         color: #ffbbbc;
         font-size: 1.3em;
     }
+
+
     @media (max-width: 767px) {
+
         .navbar-default .navbar-nav .open .dropdown-menu > li > a {
             color: #ecf0f1;
         }
@@ -89,31 +92,35 @@
         }
     }
 
-
-
-    @media (max-width:1000px) {
-
-
-        .photo
+    @media screen and (max-width: 992px)
+    {
+        #heading
         {
-            height: 100px;
-            margin-left: 35%;
+            font-size: 0.5em;
         }
+    }
 
-        .l
-        {
-            font-size: 1em;
-        }
+    #heading
+    {
+
+        text-align: center;
+        font-weight: 900;
+        color: deeppink;
+        font-style: italic;
+        font-family: fantasy;
+        font-size: 5em;
+        text-decoration: underline;
     }
 
     body
     {
-        background: url("assets/img/backgrounds/bg6.jpg");
+        background: url("assets/img/backgrounds/woman1.jpg");
         background-size: 100%;
     }
 
 </style>
 <body>
+
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -127,7 +134,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="index.html">Home</a></li>
-                <li class="active">
+                <li>
                     <a href="aboutUs.html">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
@@ -142,117 +149,129 @@
 </nav>
 
 <div class="container-fluid">
+
+    <div class="row" id="heading" style="margin: 0px; padding: 0px;">
+
+            <span style="background-color: rgba(0,255,255,0.6)" >WOMEN CRICKET&nbsp;
+            </span>
+    </div>
+    <div class="row" style="text-align: center; margin: 0px; padding: 0px">
+
+            <span style="background-color: rgba(0,255,255,0.6); font-size: 3em; color: deeppink;        font-style: italic; text-decoration: underline;        font-family: fantasy;" >Its a woman's world&nbsp;
+
+            </span>
+    </div>
+
+    <br><br><br>
+
+    <div class="row" style="text-align: justify; background-color: rgba(0,128,128,0.9);">
+
+        <br>
+        <span style="text-align: justify;  color: hotpink; font-size: 2em; font-family: cursive">
+
+                In a world where women are making their presence felt everyday, where women are capable of establishing and 4
+                dissolving governments, where women are fighting terrorists, bringing medals and forming a indispensable
+                part of leadership and judiciary, a website devoted to cricket would have been of no use if it lacked an
+                exclusive section for women's cricket.
+
+            </span>
+
+        <br>
+    </div>
+    <br><br>
+    <div class="row" style="background-color: rgba(0,128,128,0.9); padding: 0px">
+
+        <p style="font-size: 2em; text-align: center; background-color: rgba(100,255,0,0.5); color: whitesmoke; margin: 0px; padding: 0px">
+
+            So, here is our woman's section. <br>Here you can find stats and matches related only to women's cricket.<br>Many more
+            features coming soon.
+
+        </p>
+    </div>
+
     <br><br>
 
+
+
     <div class="row">
-        <div class="col-md-2">
 
+        <div class="col-sm-1"></div>
 
-
+        <div class="col-sm-4">
+            <a href="women-stats.html">
+                <button style="font-size: 2.5em" class="btn btn-danger btn-block">Records</button></a>
         </div>
 
-        <div class="col-md-8" style="background-color: white; color: blue; border: 5px solid black; box-shadow: 8px 8px 4px darkgray">
+        <div class="col-sm-2"></div>
 
-            <h1 style="text-align: center; font-family: 'Comic Sans MS'">The Team</h1>
-            <br>
-            <p style="color: white; background-color: blue; font-size: 1.5em; text-align: justify; padding: 5px" >
+        <div class="col-sm-4">
+            <a href="w-fixtures.html">
+                <button class="btn btn-danger btn-block" style="font-size: 2.5em">Fixtures</button></a>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <br><br>
+    <div class="row">
 
-                Our team comprises of just two members. We both are Delhi Technological University students. We are pursuing Btech in Computer Science and engineering and are aspiring to be web developers.
+        <div class="col-sm-1"></div>
 
-            </p>
-
-
+        <div class="col-sm-4">
+            <a href="w-headlines.html">
+                <button style="font-size: 2.5em" class="btn btn-danger btn-block">Headlines</button></a>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-sm-2"></div>
 
-
+        <div class="col-sm-4">
+            <a href="featuring-news.html">
+                <button class="btn btn-danger btn-block" style="font-size: 2.5em">Featured News</button></a>
         </div>
-
-
-
+        <div class="col-sm-1"></div>
     </div>
     <br><br>
 
+
+
     <div class="row">
 
-        <div class="col-md-1">
+        <div class="col-sm-1"></div>
 
-
-
+        <div class="col-sm-4">
+            <a href="w-photos.html">
+                <button style="font-size: 2.5em" class="btn btn-danger btn-block">Photo Gallery</button></a>
         </div>
 
-        <div class="col-md-4" style="background-color: white; color: blue; border: 5px solid black; box-shadow: 8px 8px 4px darkgray">
+        <div class="col-sm-2"></div>
 
-            <h1 style="text-align: center; font-family: 'Comic Sans MS'">Harshit Aggarwal</h1>
-            <br>
-            <img src="assets/img/backgrounds/harshit.jpg" class="img-responsive img-thumbnail photo" style="margin-left: 28%; width: 40%; height: auto">
-            <br><br>
-            <p style="color: white; background-color: blue; font-size: 1.5em; text-align: justify; padding: 5px" >
+        <div class="col-sm-4">
+            <a href="w-rankings.html">
+                <button class="btn btn-danger btn-block" style="font-size: 2.5em">ICC Rankings</button></a>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <br><br>
+    <div class="row">
 
-                <a href="mailto:harshitaggarwal283@yahoo.com" style="color: white" class="l">harshitaggarwal283@yahoo.com</a>
+        <div class="col-sm-2"></div>
 
-
-
-            </p>
-
-
+        <div class="col-sm-8">
+            <a href="icc-women-championship-results.html">
+                <button style="font-size: 2.5em" class="btn btn-danger btn-block">ICC Women Championships</button></a>
         </div>
 
-        <div class="col-md-2">
-
-
-
-        </div>
-
-        <div class="col-md-4" style="background-color: white; color: blue; border: 5px solid black; box-shadow: 8px 8px 4px darkgray">
-
-            <h1 style="text-align: center; font-family: 'Comic Sans MS'">Himanshu Gupta</h1>
-            <br>
-            <img src="assets/img/backgrounds/photo.jpg" class="img-responsive img-thumbnail photo" style="margin-left: 25%; width: 50% ; height: auto">
-            <br><br>
-            <p style="color: white; background-color: blue; font-size: 1.5em; text-align: justify; padding: 5px" >
-
-                <a href="mailto:himanshu.dtu.coe@gmail.com" style="color: white; text-align: justify" class="l">himanshu.dtu.coe@gmail.com</a>
-
-
-
-            </p>
-
-
-        </div>
-
-        <div class="col-md-1">
-
-
-
-        </div>
+        <div class="col-sm-2"></div>
 
 
     </div>
 
+    <br><br>
 
 
 </div>
 
-
 <script>
 
 
-
-    $(function () {
-
-        if (localStorage.getItem('username') != null) {
-            var string = '<div class="container-fluid">  <div class="navbar-header">                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">                <span class="icon-bar"></span>                <span class="icon-bar"></span>                <span class="icon-bar"></span>                </button>                <a class="navbar-brand" href="index.html">Cricket</a>  </div>                <div class="collapse navbar-collapse" id="myNavbar"> <ul class="nav navbar-nav">                <li><a href="index.html" id="home-button">Home</a></li>  <li class="active">  <a href="aboutUs.html">About Us </a> </li>        <li><a href="project.html">Project</a></li>    </ul>  <ul class="nav navbar-nav navbar-right">                <li><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>                <li><a id="log-out" href="index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>        </ul>        </div>        </div> ';
-
-            $('.navbar').html(string);
-        }
-
-
-
-    });
-
 </script>
-
 </body>
 </html>

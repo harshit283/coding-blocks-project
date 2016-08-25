@@ -99,7 +99,8 @@
         #heading
         {
             font-size: 90px;
-            font-family: Serif;
+            font-family: "Abyssinica SIL";
+            font-style: italic;
             color:red;
         }
 
@@ -107,8 +108,8 @@
 
             #heading
             {
-                font-size:60px;
-                font-family: Serif;
+                font-size:50px;
+                font-family: "Abyssinica SIL";
                 color:red;
             }
 
@@ -139,7 +140,7 @@
                     <a href="#">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-                <li><a href="Resources.html">Resources</a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -154,26 +155,27 @@
 
         <div class="col-sm-12">
 
-            <h1 align="center" id="heading">Recently Concluded</h1>
+            <h1 align="center" id="heading">Results</h1>
 
         </div>
 
     </div>
     <br><br><br>
     <div class="row">
-        <div class="col-md-3">
-            <button id="1" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">Test</button>
+        <div class="col-sm-3 btn-success"  style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" id="1" style="font-family: Serif">Test</h2>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-4">
-            <button id="2" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">One day Internationals</button>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4 btn-success"  style="box-shadow: 8px 8px 5px black">
+            <h2  align="center" id="2" style="font-family: Serif">One Day Internationals</h2>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
-            <button id="3" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">T20 Internationals</button>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3  btn-success" style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" id="3"  style="font-family: Serif">T20 Internationals</h2>
         </div>
     </div>
-    <br><br><br>
+
+    <br><br><br><br><br><br>
     <div class="row">
 
         <div class="col-md-1"></div>
@@ -194,7 +196,9 @@
             <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="prev2">Prev</button>
             <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="prev3">Prev</button>
         </div>
-        <div class="col-sm-6"></div>
+        <div class="col-sm-6">
+
+        </div>
         <div class="col-sm-2">
 
 
@@ -202,7 +206,7 @@
             <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="next2">Next</button>
             <button type="button" class="btn-success btn-lg btn-block" style="display: none" id="next3">Next</button>
         </div>
-        <div class="col-sm-1"></div>
+        <div class="col-sm-1" style="font-family: 'Abyssinica SIL'"></div>
     </div>
 
     </div>
@@ -212,36 +216,71 @@
 
     var cnt=0;
 
+    function remove_junk(cb) {
+
+        $("#t1 #ycric-series-schedule-past-navigation").css("display","none");
+        $("#t1 .ycric-pagination-numbers").css("display","none");
+        $("#t1 .links").css("display","none");
+        $("#t1 .ycric-pagination-total").css("display","none");
+        cb();
+    }
+
+
+
+    function my_func(data,callback) {
+        $("#t1").html(data).css("font-size",20).css("font-family","Arial");
+        var el = $("#t1 a");
+        var i;
+        for(i=0;i<el.length;i++)
+        {
+            if(el.eq(i).attr("href")[0]!='h')
+                el.eq(i).attr("href","https://cricket.yahoo.com"+el.eq(i).attr("href"));
+            el.eq(i).attr("target","_blank");
+            el.eq(i).css("font-family","fantasy").css("font-size",25).css("font-style","italic");
+        }
+
+
+        remove_junk(function () {
+            callback();
+        });
+    }
+
+
     $("#1").click(function () {
 
         initialise(function () {
             $.get('/test-up1',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt++;
-                $("#next").css("display","block");
+
+                my_func(data,function () {
+                    cnt++;
+                    console.log("hello");
+                    $("#next").css("display","block");
+                });
+
             })
         });
     });
 
     $("#next").click(function () {
         $.get('/test-up2',function (data,status) {
-            $("#t1").html(data);
-            $("#t1 a").attr("href" , "#");
-            $("#next").css("display","none");
-            $("#prev").css("display","block");
-            cnt++;
+
+            my_func(data,function () {
+                cnt++;
+                $("#next").css("display","none");
+                $("#prev").css("display","block");
+            });
         });
     });
 
     $("#prev").click(function () {
 
         $.get('/test-up1',function (data,status) {
-            $("#t1").html(data);
-            $("#t1 a").attr("href" , "#");
-            $("#next").css("display","block");
-            $("#prev").css("display","none");
-            cnt--;
+
+            my_func(data,function () {
+                cnt--;
+                $("#next").css("display","block");
+                $("#prev").css("display","none");
+            });
         })
     });
 
@@ -250,10 +289,12 @@
 
         initialise(function () {
             $.get('/odi-up1',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt++;
-                $("#next2").css("display","block");
+
+                my_func(data,function () {
+                    cnt++;
+                    $("#next2").css("display","block");
+                    $("#t1 #ycric-series-schedule-upcoming-navigation ").css("display","none");
+                });
             })
         });
     });
@@ -264,20 +305,20 @@
         if(cnt==1)
         {
             $.get('/odi-up2',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                $("#prev2").css("display","block");
-                cnt++;
+                my_func(data,function () {
+                    cnt++;
+                    $("#prev2").css("display","block");
+                });
             });
         }
 
         else if(cnt==2)
         {
             $.get('/odi-up3',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt++;
-                $("#next2").css("display","none");
+                my_func(data,function () {
+                    cnt++;
+                    $("#next2").css("display","none");
+                });
             });
         }
 
@@ -290,36 +331,36 @@
         if(cnt==2)
         {
             $.get('/odi-up1',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                $("#prev2").css("display","none");
-                cnt--;
+                my_func(data,function () {
+                    cnt--;
+                    $("#prev2").css("display","none");
+                });
             });
         }
 
         else if(cnt==3)
         {
             $.get('/odi-up2',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                $("#next2").css("display","block");
-                cnt--;
+
+                my_func(data,function () {
+                    cnt--;
+                    $("#next2").css("display","block");
+                });
             });
         }
        
     });
-    
-    
-    /*   BUTTON 3 */
+
 
     $("#3").click(function () {
 
         initialise(function () {
             $.get('/t20-up1',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt++;
-                $("#next3").css("display","block");
+
+                my_func(data,function () {
+                    cnt++;
+                    $("#next3").css("display","block");
+                });
             })
         });
     });
@@ -330,37 +371,42 @@
         if(cnt==1)
         {
             $.get('/t20-up2',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt++;
-                $("#prev3").css("display","block");
+
+                my_func(data,function () {
+                    cnt++;
+                    $("#prev3").css("display","block");
+                });
             });
         }
 
         else if(cnt==2)
         {
             $.get('/t20-up3',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt++;
+
+                my_func(data,function () {
+                    cnt++;
+                });
             });
         }
         else if(cnt==3)
         {
             $.get('/t20-up4',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt++;
+
+                my_func(data,function () {
+                    cnt++;
+                });
             });
         }
         
         else if(cnt==4)
         {
             $.get('/t20-up5',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                $("#next3").css("display","none");
-                cnt++;
+
+                my_func(data,function () {
+                    cnt++;
+                    $("#next3").css("display","none");
+                });
+
             });
         }
 
@@ -368,43 +414,43 @@
 
 
     $("#prev3").click(function () {
-        
 
          if(cnt==2)
         {
             $.get('/t20-up1',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                $("#prev3").css("display","none");
-                cnt--;
+                my_func(data,function () {
+                    cnt--;
+                    $("#prev3").css("display","none");
+                });
             });
         }
 
         else if(cnt==3)
         {
             $.get('/t20-up2',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt--;
+                my_func(data,function () {
+                    cnt--;
+                });
             });
         }
 
         else if(cnt==4)
         {
             $.get('/t20-up3',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                cnt--;
+                my_func(data,function () {
+                    cnt--;
+                });
             });
         }
 
          else if(cnt==5)
          {
              $.get('/t20-up4',function (data,status) {
-                 $("#t1").html(data);
-                 $("#t1 a").attr("href" , "#");
-                 cnt--;
-                 $("#next3").css("display","block");
+
+                 my_func(data,function () {
+                     cnt--;
+                     $("#next3").css("display","block");
+                 });
              });
          }
     });
@@ -412,6 +458,7 @@
 
     function initialise(callback) {
         cnt=0;
+        $("#t1").html('<h1 align="center">Loading..</h1>');
         $("#next").css("display","none");
         $("#prev").css("display","none");
         $("#next2").css("display","none");

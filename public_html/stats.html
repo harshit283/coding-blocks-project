@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
     <title>Cricket Stats</title>
 
-
-
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
 
@@ -95,6 +93,12 @@
                 background-color: #c02b94;
             }
         }
+
+        body
+        {
+            background: url("assets/img/backgrounds/bg8.jpg");
+            background-size: 100%;
+        }
     </style>
 
 </head>
@@ -118,7 +122,6 @@
                     <a href="aboutUs.html">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-                <li><a href="Resources.html">Resources</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -139,7 +142,7 @@
     <br><br>
     <div class="row">
 
-        <div class="col-sm-5" style="background-color: cornsilk">
+        <div class="col-sm-5" style="background-color: white;box-shadow: 8px 8px 16px black; color: purple;">
             <h2 align="center">TEST MATCHES</h2>
             <table class="table table-responsive table-bordered table-hover" id="t1">
 
@@ -174,7 +177,7 @@
 
         <div class="col-sm-2"></div>
 
-        <div class="col-sm-5" style="background-color: cornsilk">
+        <div class="col-sm-5" style="background-color: white;box-shadow: 8px 8px 16px black; color: purple;">
             <h2 align="center">ODI</h2>
             <table class="table table-responsive table-bordered table-hover">
 
@@ -229,7 +232,7 @@
                     '<a class="navbar-brand" href="index.html">Cricket</a>  </div>  ' +
                     '<div class="collapse navbar-collapse" id="myNavbar"> <ul class="nav navbar-nav"> ' +
                     '<li><a href="index.html" id="home-button">Home</a></li>  <li>  <a href="aboutUs.html">About Us </a> </li>' +
-                    '<li><a href="project.html">Project</a></li>  <li><a href="Resources.html">Resources</a></li>' +
+                    '<li><a href="project.html">Project</a></li>  ' +
                     '</ul>  <ul class="nav navbar-nav navbar-right">     ' +
                     '<li><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>  ' +
                     '<li><a id="log-out" href="index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>' +
@@ -242,5 +245,27 @@
     });
 
 </script>
+<script>
+
+
+    $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center', 'font-size' : '1.3em'});
+
+</script>
+
+
 </body>
+<style>
+
+    a
+    {
+        color: white;
+    }
+
+    a:hover
+    {
+        background-color: tomato;
+        color: white;
+    }
+
+</style>
 </html>

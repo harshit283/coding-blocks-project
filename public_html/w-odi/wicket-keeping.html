@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>Women Cricket</title>
+</head>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
+<style>
+    .navbar-default
+    {
+        background-color: purple;
+        border-color: rebeccapurple;
+    }
+    .navbar-default .navbar-brand {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        font-size: 1.3em;
+        color: #ffbbbc;
+    }
+    .navbar-default .navbar-text {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #ecf0f1;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+    .navbar-default .navbar-nav > .active > a,
+    .navbar-default .navbar-nav > .active > a:hover,
+    .navbar-default .navbar-nav > .active > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:hover,
+    .navbar-default .navbar-nav > .open > a:focus {
+        color: #ffbbbc;
+        font-size: 1.3em;
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #c02b94;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #ecf0f1;
+    }
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        border-color: #ecf0f1;
+    }
+    .navbar-default .navbar-link {
+        font-size: 1.3em;
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-link:hover {
+        color: #ffbbbc;
+        font-size: 1.3em;
+    }
+
+
+    @media (max-width: 767px) {
+
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+            color: #ecf0f1;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+            color: #ffbbbc;
+        }
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+            color: #ffbbbc;
+            background-color: #c02b94;
+        }
+    }
+
+    a
+    {
+        color:white;
+    }
+
+    a:hover
+    {
+        color:white;
+    }
+
+    #t1 a
+    {
+        color:rgb(11,0,128);
+    }
+
+
+
+</style>
+
+<body>
+
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">Cricket</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="../index.html">Home</a></li>
+                <li>
+                    <a href="../aboutUs.html">About Us </a>
+                </li>
+                <li><a href="../project.html">Project</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="../new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="../login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1 align="center" style="font-family: Serif; font-size: 80px;color: red">Wicket-keeping records</h1>
+        </div>
+
+    </div>
+
+    <div class="row" style="display: none" id="loading">
+        <h3 align="center" >Loading...</h3>
+    </div>
+</div>
+
+<br><br><br>
+<div class="container" style="display: none" id="table">
+
+    <div class="row">
+        <div class="col-xs-2">
+            <button class="btn btn-danger" id="back">BACK</button>
+        </div>
+        <div class="col-xs-8">
+            <table class="table  table-bordered" id="t1"></table>
+        </div>
+        <div class="col-xs-2"></div>
+
+    </div>
+
+</div>
+<br><br>
+
+<div class="container" id="body">
+    <div class="row">
+        <div class="col-sm-3" style="background-color: white; box-shadow: 8px 8px 16px black">
+            <table class="table table-responsive table-bordered table-hover" >
+
+                <tbody >
+                <h2 align="center" style="font-family: Serif">Most dismissals</h2>
+                <tr>
+                    <td> <a style="text-decoration: none" id="1">Most dismissals in career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" id="2">Most dismissals in an innings</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" id="3" >Most dismissals in a series</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4" style="background-color: white; box-shadow: 8px 8px 16px black">
+            <table class="table table-responsive table-bordered table-hover" >
+
+                <tbody >
+                <h2 align="center" style="font-family: Serif">Most catches</h2>
+                <tr>
+                    <td> <a style="text-decoration: none" id="4">Most catches in career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" id="5">Most catches in an innings</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" id="6">Most catches in a series</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3" style="background-color: white; box-shadow: 8px 8px 16px black">
+            <table class="table table-responsive table-bordered table-hover" >
+
+                <tbody >
+                <h2 align="center" style="font-family: Serif">Most stumpings</h2>
+                <tr>
+                    <td> <a style="text-decoration: none" id="7">Most stumpings in career</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" id="8">Most stumpings in an innings</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none" id="9" >Most stumpings in a series</a></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<br><br><br><br><br>
+<script>
+
+
+    function show_table(data) {
+
+        $("#body").css("display","none");
+        $(".container").css("display","none");
+        $("#table").css("display","block");
+        $("#t1").html(data);
+        var el=$("#t1 a");
+        var i;
+        for(i=0;i<el.length;i++)
+        {
+            if(el.eq(i).attr("href")[0]!='h')
+                el.eq(i).attr("href","http://www.espncricinfo.com"+el.eq(i).attr("href"));
+            el.eq(i).attr("target","_blank");
+        }
+        el=$("#t1 td");
+        for(i=0;i<el.length;i++)
+        {
+            el.eq(i).css("font-family","Abyssinica SIL").css("font-size",15);
+        }
+
+        el=$("#t1 thead");
+        for(i=0;i<el.length;i++)
+        {
+            el.eq(i).css("font-family","Serif").css("font-size",17);
+        }
+    }
+
+    $("#1").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-1',function (data,status) {
+            show_table(data);
+        });
+    });
+
+    $("#2").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-2',function (data,status) {
+            show_table(data);
+        });
+    });
+
+    $("#3").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-3',function (data,status) {
+            show_table(data);
+        });
+    });
+
+    $("#4").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-4',function (data,status) {
+            show_table(data);
+
+        });
+    });
+
+
+    $("#5").click(function () {
+        $("#loading").css("display","block");
+        $.get('/w-odi-wk-5',function (data,status) {
+            show_table(data);
+        });
+    });
+
+    $("#6").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-6',function (data,status) {
+            show_table(data);
+
+        });
+    });
+
+    $("#7").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-7',function (data,status) {
+            show_table(data);
+
+        });
+    });
+
+    $("#8").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-8',function (data,status) {
+            show_table(data);
+
+        });
+    });
+
+    $("#9").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-odi-wk-9',function (data,status) {
+            show_table(data);
+
+        });
+    });
+
+
+    $("#back").click(function () {
+
+        $("#body").css("display","block");
+        $("#loading").css("display","none");
+        $(".container").css("display","block");
+        $("#table").css("display","none");
+    })
+
+</script>
+<script>
+
+
+    $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center', 'font-size' : '1.3em'});
+    $('h2').css({'color': 'purple', 'text-align' : 'center'});
+
+</script>
+
+
+</body>
+<style>
+
+
+</style>
+</html>

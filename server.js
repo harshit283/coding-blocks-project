@@ -178,20 +178,24 @@ app.post('/login',function (req, res) {
 
 app.post('/getFavourites', function (req,res) {
 
-
-    // console.log("Inside Get Favourites in server");
     dbhandler.searchFavourites(req.body.username, function (result) {
 
-
-
-        // console.log("Sending Result");
-        // console.log(result);
         res.send({fav : result});
 
 
     });
 
 });
+
+
+app.post('/review', function (req ,res) {
+
+    dbhandler.review({name : req.body.name , str2 : req.body.str2, str3 : req.body.str3,  str4 : req.body.str4 }, function (arg) {
+        res.send({val : 1});
+    });
+});
+
+
 function get_records(url,callback)
 {
     request(url, function(error, response, html) {
@@ -241,142 +245,13 @@ app.get('/get-scores',function (req,res) {
     });
 });
 
+app.get('/interview',function (req,res) {
 
-app.get('/featured',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/news";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablistmixedlpcatemp").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/interview1',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-
-
-app.get('/interview2',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=2";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-app.get('/interview3',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=3";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/interview4',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=4";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-app.get('/interview5',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=5";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-app.get('/interview6',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=6";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-app.get('/interview7',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=7";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-app.get('/interview8',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=8";
+    var url;
+    if(req.query.id==1)
+     url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews";
+    else
+        url =  "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=" +req.query.id;
     request(url, function(error, response, html) {
 
         var $ = cheerio.load(html);
@@ -389,177 +264,17 @@ app.get('/interview8',function (req,res) {
     });
 
 });
-app.get('/interview9',function (req,res) {
 
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=9";
+
+
+app.get('/hl',function (req,res) {
+
+    var url;
+    if(req.query.id==1)
+     url = "http://indianexpress.com/section/sports/cricket";
+    else url =  "http://indianexpress.com/section/sports/cricket/page/"+req.query.id;
     request(url, function(error, response, html) {
-
         var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/interview10',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/blogs/yahoo-cricket-interviews/?page=10";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $("#mediablogindex").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl1',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-
-app.get('/hl2',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/psge/2";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl3',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/3";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl4',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/4";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl5',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/5";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl6',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/6";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl7',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/7";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl8',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/8";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
-
-app.get('/hl9',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/9";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
         if(!error)
         {
             var data = $(".nation").html();
@@ -570,21 +285,6 @@ app.get('/hl9',function (req,res) {
 });
 
 
-app.get('/hl10',function (req,res) {
-
-    var url = "http://indianexpress.com/section/sports/cricket/page/10";
-    request(url, function(error, response, html) {
-
-        var $ = cheerio.load(html);
-
-        if(!error)
-        {
-            var data = $(".nation").html();
-            res.send(data);
-        }
-    });
-
-});
 app.get('/photo',function (req,res) {
 
     //var url = "https://cricket.yahoo.com/photos";
@@ -602,119 +302,46 @@ app.get('/photo',function (req,res) {
         }
     });
 
-})
-app.get('/test1',function (req,res) {
+});
+app.get('/test',function (req,res) {
 
-    var url = "https://cricket.yahoo.com/matches/schedule/test-match";
+    var url;
+    if(req.query.id==1)
+     url = "https://cricket.yahoo.com/matches/schedule/test-match";
+    else
+        url = "https://cricket.yahoo.com/matches/schedule/test-match/page_"+req.query.id;
     upcoming_records(url,function (result) {
         res.send(result);
     });
 });
 
-app.get('/test2',function (req,res) {
+app.get('/odi',function (req,res) {
 
-    var url = "https://cricket.yahoo.com/matches/schedule/test-match/page_2";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
+    var url;
+    if(req.query.id==1)
+     url = "https://cricket.yahoo.com/matches/schedule/odi-match";
+    else
+        url = "https://cricket.yahoo.com/matches/schedule/odi-match/page_"+req.query.id;
 
-});
-app.get('/test3',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/test-match/page_3";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
-
-});
-
-app.get('/test4',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/test-match/page_4";
     upcoming_records(url,function (result) {
         res.send(result);
     });
 
 });
 
-app.get('/odi1',function (req,res) {
 
-    var url = "https://cricket.yahoo.com/matches/schedule/odi-match";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
+app.get('/t20',function (req,res) {
 
-
-});
-
-app.get('/odi2',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/odi-match/page_2";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
-
-
-});
-app.get('/odi3',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/odi-match/page_3";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
-
-
-});
-app.get('/odi4',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/odi-match/page_4";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
-
-
-});
-
-app.get('/odi5',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/odi-match/page_5";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
-
-
-});
-
-
-app.get('/t201',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/twenty20-match";
+    var url;
+    if(req.query.id==1)
+     url = "https://cricket.yahoo.com/matches/schedule/twenty20-match";
+    else
+        url = "https://cricket.yahoo.com/matches/schedule/twenty20-match/page_"+req.query.id;
     upcoming_records(url,function (result) {
         res.send(result);
     });
 
 });
-
-app.get('/t202',function (req,res) {
-
-    var url = "https://cricket.yahoo.com/matches/schedule/twenty20-match/page_2";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
-
-
-});
-
-app.get('/t203',function (req,res) {
-
-
-    var url = "https://cricket.yahoo.com/matches/schedule/twenty20-match/page_3";
-    upcoming_records(url,function (result) {
-        res.send(result);
-    });
-
-});
-
 
 
 app.get('/test-up1',function (req,res) {
@@ -3570,20 +3197,1242 @@ app.get('/odi-ptr-12',function (req,res) {
 
 
 
+app.get('/w-test-bt-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284265.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bt-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284261.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-bt-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284252.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bt-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284250.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bt-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284245.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284235.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284172.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284162.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284157.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-10',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284154.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-11',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284151.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-12',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284145.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-13',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284124.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-14',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284118.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-15',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284118.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-16',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284114.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-17',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283995.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-18',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284085.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bt-19',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284078.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-20',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284061.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bt-21',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284054.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bt-22',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284029.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-bw-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283977.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bw-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283972.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-bw-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283968.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bw-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283965.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bw-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283957.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283228.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283916.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283912.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283907.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-10',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283872.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-11',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283862.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-12',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283854.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-13',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283820.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-14',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283812.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-15',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283807.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-16',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283785.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-17',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283794.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-18',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283718.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bw-19',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283710.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-bw-20',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283702.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bw-21',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283670.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-bw-22',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283678.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-fld-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283646.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-fld-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283637.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-fld-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283633.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-fld-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283629.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-ar-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287369.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-ar-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287368.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-ar-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287363.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283607.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-prt-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283600.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283593.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283586.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283579.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283570.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283564.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283557.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283550.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-prt-10',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283519.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283380.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283375.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+
+app.get('/w-test-wk-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283371.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283367.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283358.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283351.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283345.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283342.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-test-wk-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283332.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-wk-10',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283326.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-test-wk-11',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283322.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-test-wk-12',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283319.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+
+app.get('/w-odi-prt-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283606.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-prt-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283599.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283592.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283585.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283578.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283569.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283563.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283556.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283549.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-prt-10',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283518.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-fld-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283644.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-fld-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283325.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-fld-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283628.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+
+app.get('/w-odi-wk-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283379.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-wk-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283374.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+
+app.get('/w-odi-wk-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283366.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-wk-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283357.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-wk-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283350.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-wk-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283341.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-wk-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283331.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-wk-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283325.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-wk-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283318.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-ar-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/302544.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-ar-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/302542.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-ar-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287366.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-ar-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287365.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-ar-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287362.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-ar-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287354.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-ar-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/287351.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-ar-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/315605.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-ar-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284270.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-bw-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283976.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bw-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283971.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bw-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283963.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283956.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283924.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283915.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283911.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283906.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283871.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-10',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283861.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-11',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283819.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-12',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283806.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-13',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283800.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-14',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283782.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-15',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283790.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-16',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283717.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-17',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283709.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-18',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283701.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-19',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283669.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bw-20',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/283676.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-bt-1',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284264.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+
+app.get('/w-odi-bt-2',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284260.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-3',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284249.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-4',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284244.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-5',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284234.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-6',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284170.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-7',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284161.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-8',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284156.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-9',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284153.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-10',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284144.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-11',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284123.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-12',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284119.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bt-13',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284117.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-14',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284113.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-15',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284084.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+app.get('/w-odi-bt-16',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284077.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-17',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284060.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-18',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284053.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-odi-bt-19',function (req,res) {
+
+    var url ="http://stats.espncricinfo.com/ci/content/records/284040.html";
+    get_records(url,function (result) {
+        res.send(result);
+    })
+});
+
+app.get('/w-headlines',function (req,res) {
+
+    var url = "http://www.icc-cricket.com/search?q=women%20cricket&page="+req.query.id;
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".searchResults").html();
+            res.send(data);
+        }
+    });
+
+});
+
+app.get('/featuring-news',function (req,res) {
+
+    var url ="http://www.espncricinfo.com/women/content/story/features.html?object=207455";
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".story-item");
+            console.log(data.length);
+            var str= "";
+            for(var i=0;i<data.length;i++)
+            {
+                str += data.eq(i).html();
+            }
+            res.send(str);
+        }
+    });
+});
+
+app.get('/w-photos',function (req,res) {
+
+    var url ="http://www.espncricinfo.com/women/content/image/index.html?object=207455";
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".img-thumbnails").html();
+            res.send(data);
+        }
+    });
+});
+
+
+app.get('/w-rankings',function (req,res) {
+
+    var url ="http://www.espncricinfo.com/women/content/page/374213.html";
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".pnl650M").html();
+            res.send(data);
+        }
+    });
+});
+
+
+
+app.get('/w-results',function (req,res) {
+
+   var url ="http://www.espncricinfo.com/icc-womens-championship-2014-16/engine/series/772563.html";
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+           // var data = $(".row").filter('.collapse').html();
+            var data = $(".news-pannel").html();
+            res.send(data);
+        }
+    });
+});
+
+app.get('/w-fixtures',function (req,res) {
+
+    var url ="http://www.espncricinfo.com/women/content/match/fixtures.html?class=8;class=9;class=10;future=1";
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".fixtures_list").filter('.clearfix').html();
+            res.send(data);
+        }
+    });
+});
+
+app.get('/w-scores',function (req,res) {
+
+    var url = req.query.url;
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $("#full-scorecard").html();
+            res.send(data);
+        }
+    });
+});
+
+
 app.post('/favourites', function (req, res) {
 
     dbhandler.searchFavourites(req.body.username, function (result) {
 
-        // console.log("Searched All Favourites");
         res.send({favourites : result.favourites});
 
     });
 
 });
 
-
 app.listen(app.get('port'),function () {
-
     console.log("Server started and listening at port " + app.get('port'));
 });
 

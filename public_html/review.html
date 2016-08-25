@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Password</title>
+    <title>Review</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script src="jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-
 
 <style>
 
@@ -94,28 +92,21 @@
         }
     }
 
-    .col-sm-6
+    textarea
     {
-        font-size: 1.7em;
-        color: blue;
+        font-size: 1.2em;
+        color: lightgreen;
+        font-family: "Comic Sans MS";
     }
-    .form-control
-    {
-        color: red;
-        font-size: 1.1em;
-        height: 45px;
-    }
-    .btn-block
-    {
-        height: 50px;
-        color: white;
-        font-size: 1.3em;
-    }
+
 
 
 
 </style>
+
+
 <body>
+
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -129,7 +120,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="index.html" id="home-button">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li>
                     <a href="aboutUs.html">About Us </a>
                 </li>
@@ -137,133 +128,141 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
-                <li><a id="log-out" href="index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+                <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<br><br>
-
 <div class="container-fluid">
 
     <div class="row">
 
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-2">
 
-            Current Password :
-            <input type="password" class="form-control" title="Current Password" id="c_password">
+
 
         </div>
+
+        <div class="col-sm-8" style="text-align: center">
+
+            <h1 style="font-size: 5em; color: darkgreen; font-weight: 900; font-style: italic">Review</h1>
+
+        </div>
+
+        <div class="col-sm-2">
+
+
+
+        </div>
+
 
     </div>
     <br>
     <div class="row">
 
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-3">
 
-            New Password:
-            <input type="password" class="form-control" title="New Password" id="n_password">
+
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+                <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Your good name" tabindex="3" required>
+                <br>What you liked about our website.<br>
+                <textarea class="form-control"  id="1" style="height: 100px" title="review" >
+
+                </textarea>
+
+                <br>Anything you found that needs to be improved or worked upon.<br>
+                <textarea class="form-control"  id="2" style="height: 100px" title="review">
+
+                </textarea>
+
+                <br>Any new feature that you want to advice.<br>
+                <textarea class="form-control" id="3"  style="height: 100px" title="review" >
+
+                </textarea>
+
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+
+
 
         </div>
 
     </div>
-
-    <br>    <div class="row">
-
-    <div class="col-sm-6 col-sm-offset-3">
-
-        Retype New Password:
-        <input type="password" class="form-control" title="Retype new Password" id="rn_password">
-
-    </div>
-
-</div>
-
-    <br><br><br> <div class="row">
-
-    <div class="col-sm-1">
-
-    </div>
-
-    <div class="col-sm-4">
-
-        <button class="btn btn-success btn-block" id="update">Update</button>
-
-    </div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-4">
-        <button class="btn btn-success btn-block" id="cancel">Cancel</button>
-
-    </div>
-    <div class="col-sm-1">
-
-
-
-    </div>
-
-
-</div>
 
     <div class="row">
 
-        <div class="col-sm-12" id="box" style="font-size: 1.3em; color: #2b542c">
+        <div class="col-sm-3">
 
 
 
         </div>
 
+        <div class="col-sm-6">
+
+            <button class="btn btn-success" style="font-size: 2em;" id="submit">Submit</button>
+
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <p style="color: springgreen">Please dont give an empty or senseless review</p>
+
+        </div>
+
     </div>
+
 
 </div>
 
 <script>
 
+
     $(function () {
 
-        if (localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
-        {
-            alert("Please login to continue")
-            window.location.href = "login.html";
-        }
 
-        $('#update').click(function () {
+        $('#submit').click(function () {
 
-            var pass1 = $('#c_password').val();
-            var pass2 = $('#n_password').val();
-            var pass3 = $('#rn_password').val();
+            var str1 = $('#name').val();
+            var str2 = $('#1').val();
+            var str3 = $('#2').val();
+            var str4 = $('#3').val();
+            console.log(str2);
 
-            if(pass1 == "" || pass2 == "")
+            console.log(str3);
+
+            console.log(str4);
+
+
+
+            if(str1 == "")
             {
-                alert("Please fill all the fields properly");
+                alert("Please enter your name");
             }
-            else if(pass2!==pass3)
+            else if(str2 == "" && str3 == "" && str4 == "")
             {
-                alert("Password Entries do not match");
+                alert("Please at least write anything in any one review field ");
             }
+
             else
             {
-                $('#box').html("Loading");
-                var request = {
-                    password : pass1,
-                    n_password : pass2,
-                    username : localStorage.getItem('username')
-                };
+                $.post('/review', {name : str1 ,
+                    str2 : str2,
+                    str3 : str3,
+                    str4 : str4
 
-                $.post('/updatePassword',request, function (data, status) {
+                }, function (data , status) {
 
-                    if(data.val == 0)
-                    {
-                        $('#box').html("");
-                        alert("Old Password does not match");
-                    }
 
-                    else
-                    {
-                        alert("Congrats! Password Changed");
-                        window.location.href = "logged.html";
-                    }
+                    alert("Thanks for your review");
+                    window.location.href = "index.html";
 
 
                 });
@@ -272,18 +271,12 @@
 
         });
 
-        $('#cancel').click(function () {
-
-            window.location.href = "profile.html";
-
-        });
 
     });
 
 
+
 </script>
-
-
 
 </body>
 </html>

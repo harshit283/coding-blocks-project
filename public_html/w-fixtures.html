@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Update Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
+    <title>Cricket Stats</title>
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+
+
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<script src="jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-
-
 <style>
 
     .navbar-default
@@ -76,7 +78,11 @@
         font-size: 1.3em;
     }
 
-
+    h1
+    {
+        font-size: 80px;
+        font-style:italic;
+    }
     @media (max-width: 767px) {
 
         .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -92,30 +98,34 @@
             color: #ffbbbc;
             background-color: #c02b94;
         }
+
+        h1
+        {
+            font-size: 50px;
+        }
     }
 
-    .col-sm-6
+
+    table
     {
-        font-size: 1.7em;
-        color: blue;
-    }
-    .form-control
-    {
-        color: red;
-        font-size: 1.1em;
-        height: 45px;
-    }
-    .btn-block
-    {
-        height: 50px;
-        color: white;
-        font-size: 1.3em;
+        background-color: white;
     }
 
+    table li
+    {
+        background-color: lightskyblue;
+        color: darkgreen;
+    }
+
+    b
+    {
+        background-color: limegreen;
+    }
 
 
 </style>
-<body>
+<body style="background-color:white">
+
 
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -129,161 +139,70 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="index.html" id="home-button">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li>
                     <a href="aboutUs.html">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
-                <li><a id="log-out" href="index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+                <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<br><br>
-
-<div class="container-fluid">
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <h1 align="center" style="font-family: 'Abyssinica SIL' ; color: darkorange">FIXTURES</h1>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>
+<br><br><br><br>
+<div class="container">
     <div class="row">
 
-        <div class="col-sm-6 col-sm-offset-3">
-
-            Current Password :
-            <input type="password" class="form-control" title="Current Password" id="c_password">
-
-        </div>
-
     </div>
-    <br>
     <div class="row">
-
-        <div class="col-sm-6 col-sm-offset-3">
-
-            New Password:
-            <input type="password" class="form-control" title="New Password" id="n_password">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10" style="box-shadow: 8px 8px 4px darkgray; border: 5px solid black; padding: 0px">
+            <table class="table table-bordered table-responsive table-hover" style="background-color:lightskyblue;" id="t1"></table>
 
         </div>
-
+        <div class="col-xs-1"></div>
     </div>
-
-    <br>    <div class="row">
-
-    <div class="col-sm-6 col-sm-offset-3">
-
-        Retype New Password:
-        <input type="password" class="form-control" title="Retype new Password" id="rn_password">
-
-    </div>
-
 </div>
-
-    <br><br><br> <div class="row">
-
-    <div class="col-sm-1">
-
-    </div>
-
-    <div class="col-sm-4">
-
-        <button class="btn btn-success btn-block" id="update">Update</button>
-
-    </div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-4">
-        <button class="btn btn-success btn-block" id="cancel">Cancel</button>
-
-    </div>
-    <div class="col-sm-1">
-
-
-
-    </div>
-
-
-</div>
-
-    <div class="row">
-
-        <div class="col-sm-12" id="box" style="font-size: 1.3em; color: #2b542c">
-
-
-
-        </div>
-
-    </div>
-
-</div>
-
 <script>
+
 
     $(function () {
 
-        if (localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
-        {
-            alert("Please login to continue")
-            window.location.href = "login.html";
-        }
+        $('#t1').html("<p style='font-size: 2em; color: darkgreen'>Loading...</p>");
+        $.get('/w-fixtures',function (data,status) {
 
-        $('#update').click(function () {
-
-            var pass1 = $('#c_password').val();
-            var pass2 = $('#n_password').val();
-            var pass3 = $('#rn_password').val();
-
-            if(pass1 == "" || pass2 == "")
+            $("#t1").html(data);
+            $("#t1 .weather_cp").css("display","none");
+            var el = $("#t1 li");
+            $("#t1 ul").prepend('<br><br>');
+            for(var i=0;i<el.length;i++)
             {
-                alert("Please fill all the fields properly");
+                el.eq(i).append('<br>');
             }
-            else if(pass2!==pass3)
-            {
-                alert("Password Entries do not match");
-            }
-            else
-            {
-                $('#box').html("Loading");
-                var request = {
-                    password : pass1,
-                    n_password : pass2,
-                    username : localStorage.getItem('username')
-                };
+            el.css("font-size",25).css("font-family","fantasy");
+            el=$("#t1 span");
+            el.filter(".large-10").css("display","none");
 
-                $.post('/updatePassword',request, function (data, status) {
-
-                    if(data.val == 0)
-                    {
-                        $('#box').html("");
-                        alert("Old Password does not match");
-                    }
-
-                    else
-                    {
-                        alert("Congrats! Password Changed");
-                        window.location.href = "logged.html";
-                    }
-
-
-                });
-            }
-
-
-        });
-
-        $('#cancel').click(function () {
-
-            window.location.href = "profile.html";
-
-        });
-
+        })
     });
 
 
+
+
+
 </script>
-
-
-
 </body>
 </html>

@@ -11,9 +11,6 @@
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
 
     <style>
-
-
-
         .navbar-default
         {
             background-color: purple;
@@ -77,10 +74,7 @@
             color: #ffbbbc;
             font-size: 1.3em;
         }
-
-
         @media (max-width: 767px) {
-
             .navbar-default .navbar-nav .open .dropdown-menu > li > a {
                 color: #ecf0f1;
             }
@@ -95,25 +89,20 @@
                 background-color: #c02b94;
             }
         }
-
         #heading
         {
             font-size: 90px;
-            font-family: Serif;
+            font-family:"DejaVu Serif";
             color:red;
+            font-style: oblique;
         }
-
         @media screen and (max-width: 900px) {
-
             #heading
             {
-                font-size:70px;
-                font-family: Serif;
+                font-size:60px;
                 color:red;
             }
-
         }
-
     </style>
 
 
@@ -136,10 +125,9 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">Home</a></li>
                 <li>
-                    <a href="">About Us </a>
+                    <a href="aboutUs.html">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-                <li><a href="Resources.html">Resources</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -159,207 +147,183 @@
         </div>
 
     </div>
-    <br><br><br>
+    <br><br><br><br><br>
     <div class="row">
-        <div class="col-md-3">
-            <button id="1" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">Test</button>
+        <div class="col-sm-3 btn-success"  style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" id="1" style="font-family: Serif">Test</h2>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-4">
-            <button id="2" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">One day Internationals</button>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4 btn-success "  style="box-shadow: 8px 8px 5px black">
+            <h2  align="center" id="2" style="font-family: Serif">One Day Internationals</h2>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
-            <button id="3" class="btn-primary btn-lg btn-block" style="box-shadow: 5px 5px 8px black">T20 Internationals</button>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3  btn-success " style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" id="3"  style="font-family: Serif">T20 Internationals</h2>
         </div>
     </div>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <div class="row">
 
-<div class="col-md-1"></div>
-        <div class="col-md-10" id="div">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10" id="div">
 
-        <table class="table table-bordered table-hover" style="background-color:cornsilk" id="t1" ></table>
+            <table class="table table-bordered table-hover" style="background-color:cornsilk" id="t1" ></table>
             <table class="table table-bordered table-hover" style="background-color:cornsilk" id="t2" ></table>
             <table class="table table-bordered table-hover" style="background-color:cornsilk" id="t3" ></table>
             <table class="table table-bordered table-hover" style="background-color:cornsilk" id="t4" ></table>
             <table class="table table-bordered table-hover" style="background-color:cornsilk" id="t5" ></table>
 
+        </div>
+        <div class="col-sm-1"></div>
 
     </div>
-        <div class="col-md-1"></div>
 
+
+    </div>
+<div id="loading" style="display: none">
+    <h1 align="center" style="font-size: 50px">Loading...</h1>
 </div>
-    <button type="button" class="btn-success btn-lg" style="display: none" id="show-more1">Show more</button>
-    <button type="button" class="btn-success btn-lg" style="display: none" id="show-more2">Show more</button>
-    <button type="button" class="btn-success btn-lg" style="display: none" id="show-more3">Show more</button>
+<br><br><br><br><br>
 
 <script>
 
-    var cnt=0;
+    var cnt=1;
+    var ans=true;
+    var f1=false,f2=false,f3=false;
 
-    $("#1").click(function () {
-            initialise(function () {
-                $.get('/test1',function (data,status) {
-                    $("#t1").html(data);
-                    $("#t1 a").attr("href" , "#");
-                    $("#show-more1").css("display","block");
-                    cnt++;
-                    console.log(cnt);
-                })
+    function change_data(data,val,cb) {
+        $("#t"+val).html(data).css("font-size",20).css("font-family","Arial");
+        var el = $("#t"+val+" a");
+        var i;
+        for(i=0;i<el.length;i++)
+        {
+            if(el.eq(i).attr("href")[0]!='h')
+                el.eq(i).attr("href","https://cricket.yahoo.com"+el.eq(i).attr("href"));
+            el.eq(i).attr("target","_blank");
+            el.eq(i).css("font-family","fantasy").css("font-size",25).css("font-style","italic");
+        }
+
+        cnt++;
+        $("#loading").css("display","none");
+        remove_junk(val,function()
+        {
+            cb();
+        });
+    }
+
+            $("#1").click(function () {
+
+                initialise(function () {
+                    f1=true;
+                    f2=false;
+                    f3=false;
+                    $.get('/test',{id:1},function (data,status) {
+                        change_data(data,1,function () {});
+                    });
+                });
             });
-
-    });
-
-    $("#show-more1").click(function () {
-
-        if(cnt==1)
-        {
-            $.get('/test2',function (data,status) {
-
-                $("#t2").html(data);
-                $("#t2 a").attr("href" , "#");
-                cnt++;
-                console.log(cnt);
-            })
-        }
-
-        else if(cnt==2)
-        {
-            $.get('/test3',function (data,status) {
-                $("#t3").html(data);
-                $("#t3 a").attr("href" , "#");
-                cnt++;
-                console.log(cnt);
-            })
-        }
-
-        else if(cnt==3)
-        {
-            $.get('/test4',function (data,status) {
-                $("#t4").html(data);
-                $("#t4 a").attr("href" , "#");
-                $("#show-more1").css("display","none");
-                console.log(cnt);
-            })
-        }
-    });
 
 
     $("#2").click(function () {
-           initialise(function () {
-               $.get('/odi1',function (data,status) {
-                   $("#t1").html(data);
-                   $("#t1 a").attr("href" , "#");
-                   $("#show-more2").css("display","block");
-                   cnt++;
-                   console.log(cnt);
-               })
-           });
 
+        initialise(function () {
+            f2=true;
+            f1=false;
+            f3=false;
+            $.get('/odi',{id:1},function (data,status) {
+                change_data(data,1,function () {});
+            });
+        });
     });
-
-
-    $("#show-more2").click(function () {
-
-        if(cnt==1)
-        {
-            $.get('/odi2',function (data,status) {
-
-                $("#t2").html(data);
-                $("#t2 a").attr("href" , "#");
-                cnt++;
-                console.log(cnt);
-            })
-        }
-
-        else if(cnt==2)
-        {
-            $.get('/odi3',function (data,status) {
-
-                $("#t3").html(data);
-                $("#t3 a").attr("href" , "#");
-                cnt++;
-                console.log(cnt);
-            })
-        }
-
-        else if(cnt==3)
-        {
-            $.get('/odi4',function (data,status) {
-                $("#t4").html(data);
-                $("#t4 a").attr("href" , "#");
-                cnt++;
-                console.log(cnt);
-            })
-        }
-
-        else if (cnt == 4) {
-            $.get('/odi5', function (data, status) {
-                $("#t5").html(data);
-                $("#t5 a").attr("href", "#");
-                $("#show-more2").css("display", "none");
-                console.log(cnt);
-            })
-        }
-    });
-
-
-
 
     $("#3").click(function () {
 
         initialise(function () {
-            $.get('/t201',function (data,status) {
-                $("#t1").html(data);
-                $("#t1 a").attr("href" , "#");
-                $("#show-more3").css("display","block");
-                cnt++;
-                console.log(cnt);
-            })
+            f2=false;
+            f1=false;
+            f3=true;
+            $.get('/t20',{id:1},function (data,status) {
+                change_data(data,1,function () {});
+            });
         });
-
     });
 
-    $("#show-more3").click(function () {
 
-        if(cnt==1)
-        {
-            $.get('/t202',function (data,status) {
-
-                $("#t2").html(data);
-                $("#t2 a").attr("href" , "#");
-                cnt++;
-                console.log(cnt);
-            })
-        }
-
-        else if(cnt==2)
-        {
-            $.get('/t203',function (data,status) {
-
-                $("#t3").html(data);
-                $("#t3 a").attr("href" , "#");
-                cnt++;
-                $("#show-more3").css("display","none");
-                console.log(cnt);
-            })
-        }
-    });
-
-    function initialise(callback) {
-        cnt=0;
+    function initialise(cb)
+    {
+        cnt=1;
+        $("#loading").css("display","block");
         $("#t1").html("");
         $("#t2").html("");
         $("#t3").html("");
         $("#t4").html("");
         $("#t5").html("");
-        $("#show-more1").css("display","none");
-        $("#show-more2").css("display","none");
-        $("#show-more3").css("display","none");
-        callback("");
+        cb();
+    }
+    function remove_junk(val,callback) {
+
+        $("#t"+val+" #ycric-series-schedule-upcoming-navigation ").css("display","none");
+        $("#t"+val+" .ycric-pagination-numbers").css("display","none");
+        $("#t"+val+" .links").css("display","none");
+        $("#t"+val+" .ycric-pagination-total").css("display","none");
+        callback();
     }
 
+
+    $(window).on( "scroll" , function() {
+
+        var $document =$(document) ;
+        var $window = $(this);
+
+        if( $document.scrollTop() >= $document.height() - $window.height() -50 ) {
+
+            if(ans && f1 && cnt<=4)
+            {
+                ans=false;
+                $("#loading").css("display","block");
+                console.log(cnt);
+                $.get('/test',{id:cnt},function (data,status) {
+
+                    change_data(data,cnt,function () {
+                        ans=true;
+                    });
+
+                });
+            }
+
+
+            else if(ans && f2 && cnt<=5)
+            {
+                ans=false;
+                $("#loading").css("display","block");
+                console.log(cnt);
+                $.get('/odi',{id:cnt},function (data,status) {
+
+                    change_data(data,cnt,function () {
+                        ans=true;
+                    });
+
+                });
+            }
+
+            else if(ans && f3 && cnt<=3)
+            {
+                ans=false;
+                $("#loading").css("display","block");
+                console.log(cnt);
+                $.get('/t20',{id:cnt},function (data,status) {
+
+                    change_data(data,cnt,function () {
+                        ans=true;
+                    });
+
+                });
+            }
+        }
+
+    });
+
 </script>
+
 </body>
 </html>

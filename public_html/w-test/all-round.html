@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
-    <title>Cricket Records</title>
+    <title>Women Cricket</title>
 </head>
-<script src="../../js/jquery.js"></script>
-<script src="../../js/bootstrap.js"></script>
-
-<link type="text/css" rel="stylesheet" href="../../css/bootstrap.css">
-
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.css">
 <style>
-
-
-
     .navbar-default
     {
         background-color: purple;
@@ -96,10 +91,27 @@
         }
     }
 
+    a
+    {
+        color:white;
+    }
+
+    a:hover
+    {
+        color:white;
+    }
+
+    #t1 a
+    {
+        color:rgb(11,0,128);
+    }
+
+
 
 </style>
 
 <body>
+
 
 
 <nav class="navbar navbar-default">
@@ -110,130 +122,164 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../../index.html">Cricket</a>
+            <a class="navbar-brand" href="../index.html">Cricket</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="../../index.html" id="home-button">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li>
-                    <a href="../../aboutUs.html">About Us </a>
+                    <a href="../aboutUs.html">About Us </a>
                 </li>
-                <li><a href="../../project.html">Project</a></li>
+                <li><a href="../project.html">Project</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="../../logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
-                <li><a id="log-out" href="../../index.html"><span class="glyphicon glyphicon-off"></span>Log Out</a></li>
+                <li><a href="../new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="../login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </div>
 </nav>
+
 <div class="container">
     <div class="row">
-
         <div class="col-sm-12">
 
-            <h1 align="center" style="font-family: Serif; font-size: 80px;color: red">Fielding-records</h1>
-
+            <h1 align="center" style="font-family: Serif; font-size: 80px;color: red">All-round records</h1>
         </div>
 
     </div>
-    <br><br>
+
+    <div class="row" style="display: none" id="loading">
+        <h3 align="center" >Loading...</h3>
+    </div>
+</div>
+
+<br><br><br>
+<div class="container" style="display: none" id="table">
 
     <div class="row">
-        <div class="col-sm-5">
-            <table class="table table-responsive table-bordered table-hover" >
-                <tbody >
-                <h2>Most catches</h2>
-                <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-1.html">Most catches in career</a></td>
-                </tr>
-                <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-2.html">Most catches in an innings</a></td>
-                </tr>
-
-                <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-3.html">Most catches in a series</a></td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="col-xs-2">
+            <button class="btn btn-danger" id="back">BACK</button>
         </div>
-
-        <div class="col-sm-2"></div>
-
-        <div class="col-sm-5">
-            <table class="table table-responsive table-bordered table-hover" >
-                <tbody>
-
-                <h2>Most substitute catches</h2>
-
-                <tr>
-                    <td><a style="text-decoration: none" href="odi-fld-4.html">Most catches by a substitute in an innings</a></td>
-                </tr>
-                </tbody>
-            </table>
+        <div class="col-xs-8">
+            <table class="table  table-bordered" id="t1"></table>
         </div>
+        <div class="col-xs-2"></div>
 
     </div>
 
 </div>
+<br><br>
+
+<div class="container-fluid" id="body">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" style="background-color: white; box-shadow: 8px 8px 16px black">
+            <table class="table table-responsive table-bordered table-hover" >
+
+                <tbody >
+                <h2 align="center" style="color: purple;">Batting and bowling</h2>
+                <tr>
+                    <td><a style="text-decoration: none" id="1">100 runs and 10 wickets in a match</a></td>
+                </tr>
+                <tr>
+                    <td><a style="text-decoration: none"id="2" >A hundred and five wickets in an innings</a></td>
+                </tr>
+
+                <tr>
+                    <td><a style="text-decoration: none" id="3">Opening the batting and bowling in the same match</a></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="col-sm-4"></div>
+    </div>
+
+</div>
+<br><br><br><br><br>
 <script>
 
-    $(function () {
 
-        if(localStorage.getItem('username') == null || typeof localStorage.getItem('username') == 'undefined')
+
+    function show_table(data) {
+
+        $("#body").css("display","none");
+        $(".container").css("display","none");
+        $("#table").css("display","block");
+        $("#t1").html(data);
+        var el=$("#t1 a");
+        var i;
+        for(i=0;i<el.length;i++)
         {
-            var string = '<div class="container-fluid">' +
-                    ' <div class="navbar-header">' +
-                    '<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">' +
-                    '<span class="icon-bar"></span>' +
-                    '<span class="icon-bar"></span>' +
-                    '   <span class="icon-bar"></span>' +
-                    ' </button>' +
-                    '<a class="navbar-brand" href="../../index.html">Cricket</a>' +
-                    '</div>' +
-                    '<div class="collapse navbar-collapse" id="myNavbar">'+
-                    ' <ul class="nav navbar-nav">'+
-                    '   <li ><a href="../../index.html">Home</a></li>' +
-                    '   <li>' +
-                    '   <a href="../../aboutUs.html">About Us </a>' +
-                    '</li>' +
-                    '<li><a href="../../project.html">Project</a></li>' +
-                    '</ul>' +
-                    '<ul class="nav navbar-nav navbar-right">' +
-                    '<li><a href="../../new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>'+
-                    '<li><a href="../../login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>' +
-                    '</ul>' +
-                    '</div>' +
-                    '</div>';
-            $('.navbar').html(string);
+            if(el.eq(i).attr("href")[0]!='h')
+                el.eq(i).attr("href","http://www.espncricinfo.com"+el.eq(i).attr("href"));
+            el.eq(i).attr("target","_blank");
+        }
+        el=$("#t1 td");
+        for(i=0;i<el.length;i++)
+        {
+            el.eq(i).css("font-family","Abyssinica SIL").css("font-size",15);
         }
 
+        el=$("#t1 thead");
+        for(i=0;i<el.length;i++)
+        {
+            el.eq(i).css("font-family","Serif").css("font-size",17);
+        }
+    }
+
+    $("#1").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-test-ar-1',function (data,status) {
+            show_table(data);
+        });
     });
+
+    $("#2").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-test-ar-2',function (data,status) {
+            show_table(data);
+        });
+    });
+
+    $("#3").click(function () {
+
+        $("#loading").css("display","block");
+
+        $.get('/w-test-ar-3',function (data,status) {
+            show_table(data);
+        });
+    });
+
+   
+
+
+    $("#back").click(function () {
+
+        $("#body").css("display","block");
+        $("#loading").css("display","none");
+        $(".container").css("display","block");
+        $("#table").css("display","none");
+    })
 
 </script>
 <script>
 
 
     $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center', 'font-size' : '1.3em'});
-    $('h2').css({'color': 'purple', 'text-align' : 'center'});
-    $('.col-sm-5').css({'box-shadow' : '8px 8px 16px black'});
 
 </script>
 
 
 </body>
 <style>
-
-    a
-    {
-        color: white;
-    }
-
-    a:hover
-    {
-        background-color: tomato;
-        color: white;
-    }
 
 </style>
 </html>

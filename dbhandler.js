@@ -384,6 +384,32 @@ function  searchFavourites(username, callback) {
 
 }
 
+function review(obj, callback) {
+    mongoClient.connect(url, function (err, db)
+    {
+        assert.equal(err,null);
+        // //console.log("Object passed is");
+        ////console.log(obj);
+        var handler = db.collection('review');
+
+        ////console.log("hello");
+        handler.insertOne({'name' : obj.name, str2 : obj.str2, str3 : obj.str3, str4 : obj.str4 }, function (err,result) {
+
+            //console.log("result of favourites function");
+            //console.log(result[0].favourites);
+            //console.log("done");
+            assert.equal(err,null);
+
+            //result[0].favourites.push(string);
+            callback(1);
+            db.close();
+
+        });
+    });
+
+
+
+}
 
 module.exports = {
     check_user: check_user,
@@ -394,5 +420,6 @@ module.exports = {
     updatePassword : UpdatePassword,
     login : login,
     addFavourites : addFavourites,
-    searchFavourites : searchFavourites
+    searchFavourites : searchFavourites,
+    review : review
 };

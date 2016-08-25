@@ -99,7 +99,8 @@
         #heading
         {
             font-size: 90px;
-            font-family: Serif;
+            font-family: "Abyssinica SIL";
+            font-style: italic;
             color:red;
         }
         @media screen and (max-width: 900px) {
@@ -107,7 +108,8 @@
             #heading
             {
                 font-size:60px;
-                font-family: Serif;
+                font-family: "Abyssinica SIL";
+
                 color:red;
             }
         }
@@ -138,7 +140,7 @@
                     <a href="#">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-                <li><a href="Resources.html">Resources</a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="new_user.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -163,313 +165,137 @@
 
 <div class="row">
     <div class="col-sm-1"></div>
-    <div class="col-sm-4 btn-success" id="1">
+    <div class="col-sm-4 btn-success" id="1" style="box-shadow: 8px 8px 5px black">
         <h2 align="center" style="font-family:Georgia" >INTERVIEWS</h2>
     </div>
     <div class="col-sm-2"></div>
-    <div class="col-sm-4 btn-success" id="2">
+    <div class="col-sm-4 btn-success" id="2" style="box-shadow: 8px 8px 5px black">
         <h2 align="center" style="font-family:Georgia">HEADLINES</h2>
     </div>
     <div class="col-sm-1"></div>
 
 </div>
-    <br><br>
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4 btn-success" id="3">
-            <h2 align="center" style="font-family:Georgia" >FEATURED NEWS</h2>
-        </div>
-        <div class="col-sm-4"></div>
     </div>
 
-
-
+<br><br><br><br>
 <div class="container-fluid">
-
-    <br><br><br><br>
     <div class="row">
         <div class="col-sm-1"></div>
 
-        <div class="col-sm-10" id="div2" style="background-color: whitesmoke"></div>
+        <div class="col-sm-10" id="div2" style="background-color: snow"></div>
         <div class="col-sm-1"></div>
-    </div>
-
-    <br>
-    <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2">
-            <button  class="btn-primary btn-lg" style="display: none" id="more">Show More</button>
-            <button  class="btn-primary btn-lg" style="display: none" id="more2">Show More</button>
-        </div>
-        <div class="col-sm-7"></div>
-        <div class="col-sm-2">
-            <button  class="btn-primary btn-lg" style="display: none" id="top">Go to Top</button>
-            <button  class="btn-primary btn-lg" style="display: none" id="top2">Go to Top</button>
-        </div>
     </div>
 
 </div>
+    <div id="loading" style="display: none">
+        <h1 align="center">Loading...</h1>
+    </div>
+
+    <br><br><br><br><br>
 <script>
 
     var cnt=1;
-
-    function initialise(callback) {
-
-        cnt=1;
-        $("#more").css("display","none");
-        $("#more2").css("display","none");
-        $("#top").css("display","none");
-        $("#top2").css("display","none");
-        callback("");
-    }
-
+    var f1=false,f2=false,f3=false;
     $("#2").click(function () {
 
-        initialise(function () {
-            $.get('/hl1',function (data,status) {
-                window.location.href="#heading";
+            $.get('/hl',{id:1},function (data,status) {
+                f2=true;
+                f1=false;
+                f1=false;
                 $("#heading").text("Headlines");
-                $("#more2").css("display","block");
-                $("#top2").css("display","block");
                 $("#div2").html(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-
-                cnt++;
-            })
+                append_data(function(){});
         });
     });
 
-    $("#more2").click(function () {
-
-        if(cnt==2)
-        {
-            $.get('/hl2',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-        else if(cnt==3)
-        {
-            $.get('/hl3',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-        else if(cnt==4)
-        {
-            $.get('/hl4',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-
-        else if(cnt==5)
-        {
-            $.get('/hl5',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-
-        else if(cnt==6)
-        {
-            $.get('/hl6',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-        else if(cnt==7)
-        {
-            $.get('/hl7',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-        else if(cnt==8)
-        {
-            $.get('/hl8',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-
-        else if(cnt==9)
-        {
-            $.get('/hl9',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-
-        else if(cnt==10)
-        {
-            $.get('/hl10',function (data,status) {
-                $("#div2").append(data);
-                cnt++;
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                $("#more").css("disabled");
-            });
-        }
-
-    });
 
     $("#1").click(function () {
 
-        initialise(function () {
-            $.get('/interview1',function (data,status) {
-                window.location.href="#heading";
+            $.get('/interview',{id:1},function (data,status) {
+                f1=true;
+                f2=false;
+                f3=false;
                 $("#heading").text("Interviews");
                 $("#div2").html(data);
-                $("#more").css("display","block");
-                $("#top").css("display","block");
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            })
-        });
-
+                append_data(function(){});
+            });
     });
 
 
-    $("#more").click(function () {
+    function append_data(callback)
+    {
+        $("#div2 img").attr("class","img-responsive");
+        $("#div2 .pagination").css("display","none");
 
-        if(cnt==2)
+        var i;
+        var el1= $("#div2 a");
+        el1.css("font-family","Arial");
+        var hl_el = $("#heading");
+        for(i=0;i<el1.length;i++)
         {
-            $.get('/interview2',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-                cnt++;
-            });
-        }
-        else if(cnt==3)
-        {
-            $.get('/interview3',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
+            if(el1.eq(i).attr("href")[0]!='h')
+            el1.eq(i).attr("href","https://cricket.yahoo.com"+el1.eq(i).attr("href"));
+            el1.eq(i).attr("target","_blank").css("font-family","fantasy").css("font-style","italic");
 
-                cnt++;
-            });
-        }
-        else if(cnt==4)
-        {
-            $.get('/interview4',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-
-                cnt++;
-            });
+            if(hl_el.text()=="Headlines")
+                el1.eq(i).css("font-size",30);
         }
 
-        else if(cnt==5)
+
+
+        el2=$("#div2 h2").filter(".subheadline");
+        for(i=0;i<el2.length;i++)
         {
-            $.get('/interview5',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-
-
-                cnt++;
-            });
+            el2.eq(i).css("background-color","purple").css("color","white").css("font-family","Serif");
         }
 
-        else if(cnt==6)
-        {
-            $.get('/interview6',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
+        cnt++;
+        callback();
+    }
 
-                cnt++;
-            });
-        }
-        else if(cnt==7)
-        {
-            $.get('/interview7',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
 
-                cnt++;
-            });
-        }
-        else if(cnt==8)
-        {
-            $.get('/interview8',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").href("#");
-                $("#div2 img").attr("class","img-responsive");
+var ans=true;
+    $(window).on( "scroll" , function() {
 
-                cnt++;
-            });
-        }
+        var $document =$(document) ;
+        var $window = $(this);
 
-        else if(cnt==9)
-        {
-            $.get('/interview9',function (data,status) {
-                $("#div2").append(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
+        if( $document.scrollTop() >= $document.height() - $window.height() -50 ) {
 
-                cnt++;
-            });
-        }
+            if(ans && f1 && cnt<=10)
+            {
+                ans=false;
+                $("#loading").css("display","block");
+                console.log(cnt);
+                $.get('/interview',{id:cnt},function (data,status) {
 
-        else if(cnt==10)
-        {
-            $.get('/interview10',function (data,status) {
-                $("#div2").append(data);
-                cnt++;
-                $("#more").css("disabled");
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
+                    $("#div2").append(data);
+                    append_data(function () {
+                        $("#loading").css("display","none");
+                        ans=true;
+                    });
 
-            });
+                });
+            }
+
+
+           else if(ans && f2 && cnt<=10)
+            {
+                ans=false;
+                $("#loading").css("display","block");
+                console.log(cnt);
+                $.get('/hl',{id:cnt},function (data,status) {
+
+                    $("#div2").append(data);
+                    append_data(function () {
+                        $("#loading").css("display","none");
+                        ans=true;
+                    });
+                });
+            }
         }
 
     });
-
-    $("#3").click(function () {
-
-        initialise(function () {
-            $.get('/featured',function (data,status) {
-                window.location.href="#heading";
-                $("#heading").text("Featured News");
-                $("#div2").html(data);
-                $("#div2 a").attr("href","#");
-                $("#div2 img").attr("class","img-responsive");
-            });
-        });
-    });
-
-    $("#top").click(function () {
-        window.location.href="#heading";
-    });
-    $("#top2").click(function () {
-        window.location.href="#heading";
-    });
-
-
 
 </script>
 </body>

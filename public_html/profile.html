@@ -182,7 +182,7 @@
                     <a href="aboutUs.html">About Us </a>
                 </li>
                 <li><a href="project.html">Project</a></li>
-                <li><a href="Resources.html">Resources</a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="logged.html"><span class="glyphicon glyphicon-user"></span>Account</a></li>
@@ -410,7 +410,8 @@
 
         });
 
-        $('#box').html("Loading");
+        $('#butt').html("Loading");
+        $('#butt1').html("Loading");
         var username = localStorage.getItem('username');
         $.post('/fetchUser', {username : username} ,function (data, status) {
 
@@ -447,7 +448,8 @@
                 $('#row4-div4').html("NA");
             }
 
-            $('#box').html("");
+            $('#butt').html("Update <br> info");
+            $('#butt1').html("Update <br> Password");
 
 
         });
