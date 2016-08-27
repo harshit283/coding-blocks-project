@@ -1,6 +1,6 @@
 {
   "name": "node.js_project",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "web project with nodejs",
   "main": "server.js",
   "scripts": {
