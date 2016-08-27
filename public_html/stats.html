@@ -92,6 +92,8 @@
                 color: #ffbbbc;
                 background-color: #c02b94;
             }
+
+
         }
 
         body
@@ -249,6 +251,24 @@
 
 
     $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center', 'font-size' : '1.3em'});
+
+    function ch() {
+
+        if(window.innerWidth < 800)
+        {
+            $('body').css({'background' : 'none'});
+        }
+
+        else
+        {
+            $('body').css({'background' : 'url("assets/img/backgrounds/bg8.jpg")' , 'backgrond-size' : '100%'});
+
+
+        }
+
+    }
+
+    setInterval(ch, 500);
 
 </script>
 
