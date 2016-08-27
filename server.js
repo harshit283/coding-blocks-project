@@ -3207,7 +3207,7 @@ app.get('/w-test-bt-1',function (req,res) {
 
 app.get('/w-test-bt-2',function (req,res) {
 
-    var url ="http://stats.espncricinfo.com/ci/content/records/284261.html";
+    var url ="http://stats.espncricinfo.com/ci/content/records/284261.htmlR";
     get_records(url,function (result) {
         res.send(result);
     })

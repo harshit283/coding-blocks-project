@@ -56,6 +56,8 @@
     .navbar-default .navbar-toggle {
         border-color: #c02b94;
     }
+
+
     .navbar-default .navbar-toggle:hover,
     .navbar-default .navbar-toggle:focus {
         background-color: #c02b94;
@@ -87,6 +89,12 @@
         font-size: 50px;
     }
 
+    #t1
+    {
+        box-shadow: 8px 8px 4px gray;
+        border: 3px solid black;
+    }
+
     @media (max-width: 767px) {
 
         .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -106,7 +114,13 @@
         #heading
         {
             font-style: italic;
-            font-size: 80px;
+            font-size: 40px;
+        }
+
+        h2
+        {
+            font-size: 20px;
+            display: block;
         }
 
     }
@@ -187,7 +201,6 @@
         $("#t1").html('<h2 align="center">Loading...</h2>');
        $.get('/w-results',function (data,status) {
 
-           console.log(data);
            $("#t1").html(data);
          var el1 = $("#t1");
             el1.html(data);

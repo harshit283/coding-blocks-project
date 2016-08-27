@@ -200,6 +200,16 @@
             alert("Invalid Format for an Email Address");
             $("#email").val("");
         }
+        else
+        {
+            pos = email.indexOf('.');
+            if(pos==-1)
+            {
+                alert("Invalid Format for an Email Address");
+                $("#email").val("");
+            }
+        }
+
 
 
     });
