@@ -180,18 +180,15 @@
 
 
 </div>
-<div id="loading" style="display: none">
-    <h1 align="center" style="font-size: 50px">Loading...</h1>
-</div>
-<br><br><br><br><br>
+
+<br><br><br>
 
 <script>
-
     var cnt=1;
     var ans=true;
     var f1=false,f2=false,f3=false;
-
     function change_data(data,val,cb) {
+
         $("#t"+val).html(data).css("font-family","Arial");
         var el = $("#t"+val+" a");
         var i;
@@ -202,16 +199,14 @@
             el.eq(i).attr("target","_blank");
             el.eq(i).css("font-family","fantasy").css("font-style","italic");
         }
-
         cnt++;
-        $("#loading").css("display","none");
         remove_junk(val,function()
         {
             cb();
         });
     }
-
     $("#1").click(function () {
+
 
         initialise(function () {
             f1=true;
@@ -222,8 +217,6 @@
             });
         });
     });
-
-
     $("#2").click(function () {
 
         initialise(function () {
@@ -248,12 +241,10 @@
         });
     });
 
-
     function initialise(cb)
     {
         cnt=1;
-        $("#loading").css("display","block");
-        $("#t1").html("");
+        $("#t1").html('<h1 align="center" style="font-size: 50px">Loading...</h1>');
         $("#t2").html("");
         $("#t3").html("");
         $("#t4").html("");
@@ -261,68 +252,51 @@
         cb();
     }
     function remove_junk(val,callback) {
-
         $("#t"+val+" #ycric-series-schedule-upcoming-navigation ").css("display","none");
         $("#t"+val+" .ycric-pagination-numbers").css("display","none");
         $("#t"+val+" .links").css("display","none");
         $("#t"+val+" .ycric-pagination-total").css("display","none");
         callback();
     }
-
-
     $(window).on( "scroll" , function() {
-
         var $document =$(document) ;
         var $window = $(this);
-
         if( $document.scrollTop() >= $document.height() - $window.height() -50 ) {
-
             if(ans && f1 && cnt<=4)
             {
                 ans=false;
-                $("#loading").css("display","block");
+                $("#t"+cnt).html('<h1 align="center" style="font-size: 50px">Loading...</h1>');
                 console.log(cnt);
                 $.get('/test',{id:cnt},function (data,status) {
-
                     change_data(data,cnt,function () {
                         ans=true;
                     });
-
                 });
             }
-
-
             else if(ans && f2 && cnt<=5)
             {
                 ans=false;
-                $("#loading").css("display","block");
+                $("#t"+cnt).html('<h1 align="center" style="font-size: 50px">Loading...</h1>');
                 console.log(cnt);
                 $.get('/odi',{id:cnt},function (data,status) {
-
                     change_data(data,cnt,function () {
                         ans=true;
                     });
-
                 });
             }
-
             else if(ans && f3 && cnt<=3)
             {
                 ans=false;
-                $("#loading").css("display","block");
+                $("#t"+cnt).html('<h1 align="center" style="font-size: 50px">Loading...</h1>');
                 console.log(cnt);
                 $.get('/t20',{id:cnt},function (data,status) {
-
                     change_data(data,cnt,function () {
                         ans=true;
                     });
-
                 });
             }
         }
-
     });
-
 </script>
 
 </body>

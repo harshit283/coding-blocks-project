@@ -11,9 +11,7 @@
 
 </head>
 <style>
-
     .navbar-default
-
     {
         background-color: purple;
         border-color: rebeccapurple;
@@ -76,15 +74,12 @@
         color: #ffbbbc;
         font-size: 1.3em;
     }
-
     h1
     {
         font-style: italic;
         font-size: 80px;
     }
-
     @media (max-width: 767px) {
-
         .navbar-default .navbar-nav .open .dropdown-menu > li > a {
             color: #ecf0f1;
         }
@@ -98,25 +93,17 @@
             color: #ffbbbc;
             background-color: #c02b94;
         }
-
         h1
         {
             font-style: italic;
             font-size: 50px;
         }
-
-
     }
-
     figure
     {
         color: white;
         background-color:purple;
-
     }
-
-
-
 </style>
 <body style="background-color:whitesmoke;">
 
@@ -210,73 +197,53 @@
 <button title="go to top" class="btn-lg btn-success" id="top" style="display: none"><a href="#" style="color: white"> Go toTop</a></button>
 <br><br>
 <script>
-
-var cnt=1;
-$(function () {
-
-    $.get('/w-headlines',{id:1},function (data,status) {
-        show_news(data,function(){});
+    var cnt=1;
+    $(function () {
+        $.get('/w-headlines',{id:1},function (data,status) {
+            show_news(data,function(){});
+        });
     });
-});
-
-
-function show_news(data,callback) {
-
-    $("#d"+cnt).css("display","block");
-    $("#t"+cnt).html(data);
-    $("#t"+cnt+" img").css("align","left").addClass("img-responsive");
-
-    var el = $("#t"+cnt+" a");
-
-    for(var i=0;i<el.length;i++)
-    {
-        el.eq(i).attr("href","http://www.icc-cricket.com/search?q=women%20cricket&page=1"+el.eq(i).attr("href"));
-        el.eq(i).css("font-size",'200%').css("font-family","Serif").css("color","red").css("background-color","white").attr("target","_blank");
-    }
-
-    $("#t" + cnt +" figcaption").css("font-weight","bold").css("font-family","Arial");
-    $("#t" +cnt + " figcaption").append('<br><br>');
-
-    $('figure a').css({'backgound-color' : 'white', 'color' : 'purple'});
-
-    $('img').css({'width' : '33%', 'margin-left' : '33%'});
-    cnt++;
-  callback();
-
-}
-
-
-var ans = true;
-$(window).on( "scroll" , function() {
-
-    var $document =$(document) ;
-    var $window = $(this);
-
-    if( $document.scrollTop() >= $document.height() - $window.height() -50 ) {
-
-        if(ans && cnt<=5)
+    function show_news(data,callback) {
+        $("#d"+cnt).css("display","block");
+        $("#t"+cnt).html(data);
+        $("#t"+cnt+" img").css("align","left").addClass("img-responsive");
+        var el = $("#t"+cnt+" a");
+        for(var i=0;i<el.length;i++)
         {
-            ans=false;
-            $("#loading").css("display","block");
-            console.log(cnt);
-            $.get('/w-headlines',{id:cnt},function (data,status) {
-                show_news(data,function () {
-                    $("#loading").css("display","none");
-                    ans=true;
+            el.eq(i).attr("href","http://www.icc-cricket.com/search?q=women%20cricket&page=1"+el.eq(i).attr("href"));
+            el.eq(i).css("font-size",'200%').css("font-family","Serif").css("color","red").css("background-color","white").attr("target","_blank");
+        }
+        $("#t" + cnt +" figcaption").css("font-weight","bold").css("font-family","Arial");
+        $("#t" +cnt + " figcaption").append('<br><br>');
+        $('figure a').css({'backgound-color' : 'white', 'color' : 'purple'});
+        $('img').css({'width' : '33%', 'margin-left' : '33%'});
+        cnt++;
+        callback();
+    }
+    var ans = true;
+    $(window).on( "scroll" , function() {
+        var $document =$(document) ;
+        var $window = $(this);
+        if( $document.scrollTop() >= $document.height() - $window.height() -50 ) {
+            if(ans && cnt<=5)
+            {
+                ans=false;
+                $("#loading").css("display","block");
+                console.log(cnt);
+                $.get('/w-headlines',{id:cnt},function (data,status) {
+                    show_news(data,function () {
+                        $("#loading").css("display","none");
+                        ans=true;
+                    });
                 });
-            });
+            }
+            else if(cnt>5)
+            {
+                $("#top").css("display","block");
+            }
         }
-       else if(cnt>5)
-        {
-            $("#top").css("display","block");
-        }
-    }
-
-});
-
-
+    });
     function ch() {
-
         if(window.innerWidth > 900)
         {
             $('img').css({'width' : '33%', 'margin-left' : '33%'});
@@ -285,11 +252,8 @@ $(window).on( "scroll" , function() {
         {
             $('img').css({'width' : '80%', 'margin-left' : '10%'});
         }
-
     }
-
     setInterval(ch,500)
-
 </script>
 </body>
 </html>
