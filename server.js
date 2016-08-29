@@ -4362,21 +4362,86 @@ app.get('/w-photos',function (req,res) {
 });
 
 
-app.get('/w-rankings',function (req,res) {
+app.get('/w-rankings-bt',function (req,res) {
 
-    var url ="http://www.espncricinfo.com/women/content/page/374213.html";
+    var url ="http://www.reliancemobileiccrankings.com/feed/womenodi/batting/";
     request(url, function(error, response, html) {
 
         var $ = cheerio.load(html);
         if(!error)
         {
-            var data = $(".pnl650M").html();
+            var data = $(".ratingstable").html();
+            res.send(data);
+        }
+    });
+});
+
+app.get('/w-rankings-bw',function (req,res) {
+
+    var url ="http://www.reliancemobileiccrankings.com/feed/womenodi/bowling/";
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".ratingstable").html();
+            res.send(data);
+        }
+    });
+});
+
+app.get('/w-rankings-ar',function (req,res) {
+
+    var url ="http://www.reliancemobileiccrankings.com/feed/womenodi/all-rounder/";
+    request(url, function(error, response, html) {
+
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".ratingstable").html();
+            res.send(data);
+        }
+    });
+});
+
+app.get('/w-rankings-t20bt',function (req,res) {
+
+    var url ="http://www.reliancemobileiccrankings.com/feed/woment20/batting/";
+    request(url, function(error, response, html) {
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".ratingstable").html();
             res.send(data);
         }
     });
 });
 
 
+app.get('/w-rankings-t20bw',function (req,res) {
+
+    var url ="http://www.reliancemobileiccrankings.com/feed/woment20/bowling/";
+    request(url, function(error, response, html) {
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".ratingstable").html();
+            res.send(data);
+        }
+    });
+});
+app.get('/w-rankings-t20ar',function (req,res) {
+
+    var url ="http://www.reliancemobileiccrankings.com/feed/woment20/all-rounder/";
+    request(url, function(error, response, html) {
+        var $ = cheerio.load(html);
+        if(!error)
+        {
+            var data = $(".ratingstable").html();
+            res.send(data);
+        }
+    });
+});
 
 app.get('/w-results',function (req,res) {
 

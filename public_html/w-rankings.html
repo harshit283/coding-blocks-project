@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <! This will help in zooming in mobile>
     <title>Cricket Stats</title>
-
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -103,8 +102,6 @@
             font-size: 50px;
         }
 
-
-
     }
 
 
@@ -151,31 +148,132 @@
 </div>
 <br><br><br>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 btn-success" id="1" style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" style="font-family:Georgia" >ODI Batting</h2>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4 btn-success" id="2" style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" style="font-family:Georgia">ODI Bowling</h2>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 btn-success" id="3" style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" style="font-family:Georgia">ODI All-Rounder</h2>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-3 btn-success" id="4" style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" style="font-family:Georgia" >T20 Batting</h2>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4 btn-success" id="5" style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" style="font-family:Georgia">T20 Bowling</h2>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3 btn-success" id="6" style="box-shadow: 8px 8px 5px black">
+            <h2 align="center" style="font-family:Georgia">T20 All-Rounder</h2>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br><br>
 <div class="container">
     <div class="row">
 
     </div>
     <div class="row">
         <div class="col-sm-1"></div>
-        <div class="col-sm-10 img-responsive" id="t1" >
+        <div class="col-sm-10">
+            <table class="table table-responsive table-bordered" style="visibility: hidden">
+                <h1 align="center" style="font-size: 50px;color:#0068c3 ;font-family: serif" id="heading"></h1>
+                <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Rating</th>
+                </tr>
+                </thead>
+                <tbody id="tbody">
 
+                </tbody>
+            </table>
         </div>
         <div class="col-sm-1"></div>
     </div>
 </div>
+
+<div id="t1" style="visibility: hidden;"></div>
+
 <script>
 
 
-    $(function () {
+    $("#1").click(function () {
 
-        $("#t1").html('<h2 align="center">Loading...</h2>');
-        $.get('/w-rankings', function (data, status) {
-            $("#t1").html(data);
-            var el = $("#t1 iframe");
-            el.css("width",700).css("height",350);
+        $("#heading").text("ODI Batting");
+        $.get('/w-rankings-bt', function (data, status) {
+                  display_rankings(data);
         });
-
     });
+
+    $("#2").click(function () {
+        $("#heading").text("ODI Bowling");
+        $.get('/w-rankings-bw', function (data, status) {
+                    display_rankings(data);
+        });
+    });
+    $("#3").click(function () {
+        $("#heading").text("ODI All-rounder");
+        $.get('/w-rankings-ar', function (data, status) {
+                 display_rankings(data);
+        });
+    });
+    $("#4").click(function () {
+
+        $("#heading").text("T20 Batting");
+        $.get('/w-rankings-t20bt', function (data, status) {
+            display_rankings(data);
+        });
+    });
+    $("#5").click(function () {
+
+        $("#heading").text("T20 Bowling");
+        $.get('/w-rankings-t20bw', function (data, status) {
+              display_rankings(data);
+
+        });
+    });
+    $("#6").click(function () {
+
+        $("#heading").text("T20 All-Rounder");
+        $.get('/w-rankings-t20ar', function (data, status) {
+             display_rankings(data);
+        });
+    });
+
+
+    function display_rankings(data)
+    {
+        $("#t1").html(data);
+        var el = $("#t1 td");
+        var str = "";
+        var j=0;
+        for(var i=0;i<el.length/3-4;i++)
+        {
+            str+= '<tr><td>'+el.eq(j).text() + '</td>' + '<td>'+ el.eq(j+1).text()
+                    + '</td>'+ '<td>'+ el.eq(j+2).text() + '</td>'+'<td>'+ el.eq(j+3).text() + '</td>'+'</tr>';
+            j=j+4;
+        }
+
+        $("table").css("visibility","visible");
+
+        $("#tbody").html("");
+        $("#tbody").append(str);
+    }
+
+
 
 
 
@@ -187,5 +285,6 @@
         color: #0068c3;
         font-size: 2.2em;
     }
+
 </style>
 </html>
