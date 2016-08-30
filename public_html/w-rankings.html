@@ -108,7 +108,7 @@
 
 
 </style>
-<body style="background-color: whitesmoke;">
+<body style="background-color: yellow;">
 
 
 <nav class="navbar navbar-default">
@@ -141,7 +141,7 @@
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-            <h1 align="center" style="font-family:'Abyssinica SIL'; font-style:italic ;color: #0068c3">ICC Women's Ranking</h1>
+            <h1 align="center" style="font-family:'Abyssinica SIL'; font-style:italic ;color: grey">ICC Women's Ranking</h1>
         </div>
         <div class="col-sm-1"></div>
     </div>
@@ -150,29 +150,29 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 btn-success" id="1" style="box-shadow: 8px 8px 5px black">
+        <div class="col-sm-3" id="1" style="box-shadow: 8px 8px 5px black; background-color: grey">
             <h2 align="center" style="font-family:Georgia" >ODI Batting</h2>
         </div>
         <div class="col-sm-1"></div>
-        <div class="col-sm-4 btn-success" id="2" style="box-shadow: 8px 8px 5px black">
+        <div class="col-sm-4" id="2" style="box-shadow: 8px 8px 5px black; background-color: grey">
             <h2 align="center" style="font-family:Georgia">ODI Bowling</h2>
         </div>
         <div class="col-sm-1"></div>
-        <div class="col-sm-3 btn-success" id="3" style="box-shadow: 8px 8px 5px black">
+        <div class="col-sm-3  " id="3" style="box-shadow: 8px 8px 5px black; background-color: grey">
             <h2 align="center" style="font-family:Georgia">ODI All-Rounder</h2>
         </div>
     </div>
     <br>
     <div class="row">
-        <div class="col-sm-3 btn-success" id="4" style="box-shadow: 8px 8px 5px black">
+        <div class="col-sm-3  " id="4" style="box-shadow: 8px 8px 5px black; background-color: grey">
             <h2 align="center" style="font-family:Georgia" >T20 Batting</h2>
         </div>
         <div class="col-sm-1"></div>
-        <div class="col-sm-4 btn-success" id="5" style="box-shadow: 8px 8px 5px black">
+        <div class="col-sm-4  " id="5" style="box-shadow: 8px 8px 5px black; background-color: grey">
             <h2 align="center" style="font-family:Georgia">T20 Bowling</h2>
         </div>
         <div class="col-sm-1"></div>
-        <div class="col-sm-3 btn-success" id="6" style="box-shadow: 8px 8px 5px black">
+        <div class="col-sm-3  " id="6" style="box-shadow: 8px 8px 5px black; background-color: grey">
             <h2 align="center" style="font-family:Georgia">T20 All-Rounder</h2>
         </div>
     </div>
@@ -186,8 +186,8 @@
     <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-            <table class="table table-responsive table-bordered" style="visibility: hidden">
-                <h1 align="center" style="font-size: 50px;color:#0068c3 ;font-family: serif" id="heading"></h1>
+            <table class="table table-responsive table-bordered" style="visibility: hidden;">
+                <h1 align="center" style="font-size: 50px;color:grey ;font-family: serif" id="heading"></h1>
                 <thead>
                 <tr>
                     <th>Rank</th>
@@ -264,13 +264,14 @@
         {
             str+= '<tr><td>'+el.eq(j).text() + '</td>' + '<td>'+ el.eq(j+1).text()
                     + '</td>'+ '<td>'+ el.eq(j+2).text() + '</td>'+'<td>'+ el.eq(j+3).text() + '</td>'+'</tr>';
-            j=j+4;
+            j = j + 4;
         }
 
         $("table").css("visibility","visible");
 
         $("#tbody").html("");
         $("#tbody").append(str);
+        window.scrollBy(0, 500);
     }
 
 
@@ -278,6 +279,13 @@
 
 
 </script>
+
+<script>
+
+
+
+</script>
+
 </body>
 <style>
     h3
@@ -285,6 +293,61 @@
         color: #0068c3;
         font-size: 2.2em;
     }
+
+    #1
+    {
+        background-color: grey;
+        color: yellow;
+    }
+
+    #2
+    {
+        background-color: grey;
+        color: yellow;
+    }
+
+    #3
+    {
+        background-color: grey;
+        color: yellow;
+    }
+
+    #4
+    {
+        background-color: grey;
+        color: yellow;
+    }
+
+    #5
+    {
+        background-color: grey;
+        color: yellow;
+    }
+
+    #6
+    {
+        background-color: grey;
+        color: yellow;
+    }
+
+    h2:hover
+    {
+        color: darkorange;
+    }
+
+    h2
+    {
+        color: yellow;
+    }
+    tr
+    {
+        background-color: grey;
+        color: yellow;
+    }
+
+
+
+
 
 </style>
 </html>
