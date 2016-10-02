@@ -215,9 +215,29 @@
                     localStorage.setItem('username',username);
                     window.location.href = "logged.html";
                 }
-            })
+            });
         }
-    })
+    });
+
+    function check() {
+
+        if(window.innerWidth < 1000)
+        {
+            $('body').css({'background' : 'none'});
+
+        }
+        else
+        {
+            $('body').css({
+                'background': 'url("assets/img/backgrounds/1.jpg")',
+            'background-size': 'cover' });
+        }
+
+    }
+
+    var m = setInterval(check, 500);
+
+
 </script>
 </body>
 </html>

@@ -104,10 +104,7 @@
         {
             font-size: 5em;
         }
-        #row2
-        {
-            display: none;
-        }
+
         .btn-block
         {
             font-size: 0.5em;
@@ -125,11 +122,7 @@
         }
     }
 
-    body
-    {
-        background: url("assets/img/backgrounds/bg1.jpg");
-        background-size: cover;
-    }
+
     .btn-block
     {
         height: 80px;
@@ -182,7 +175,7 @@
 
         <div class="col-sm-4" id="row1-div2">
 
-            <div id="heading" style="font-weight: bold ;  font-family: Serif ; color: whitesmoke"  > CRICKET  </div>
+            <div id="heading" style="font-weight: bold ;  font-family: Serif ; color: darkred; text-align: center"  > CRICKET  </div>
 
         </div>
         <div class="col-sm-1"></div>
@@ -214,7 +207,7 @@
         </div>
         <div class="col-sm-2">
 
-            <a href="profile.html"> <button class="btn btn-success btn-block" id="butt">Profile</button></a>
+            <a href="profile.html"> <button class="btn btn-danger btn-block" id="butt">Profile</button></a>
 
         </div>
         <div class="col-sm-1">
@@ -222,7 +215,7 @@
         </div>
         <div class="col-sm-3">
 
-            <a href="stats.html"> <button class="btn btn-success btn-block" id="butt1">Search for <br>cricket records </button></a>
+            <a href="stats.html"> <button class="btn btn-danger btn-block" id="butt1">Search for <br>cricket records </button></a>
 
         </div>
         <div class="col-sm-1">
@@ -232,7 +225,7 @@
 
         <div class="col-sm-3">
 
-            <a href="favourites.html"> <button class="btn btn-success btn-block" id="butt3">Favourites</button></a>
+            <a href="favourites.html"> <button class="btn btn-danger btn-block" id="butt3">Favourites</button></a>
 
         </div>
         <div class="col-sm-1">
@@ -255,7 +248,23 @@
         $('#log-out').click(function () {
             localStorage.clear();
         });
+        var m = setInterval(check,100);
     });
+
+
+    function check()
+    {
+        if(window.innerWidth < 1000)
+        {
+            $('body').css({'background' : 'none'});
+            $('#heading').css({'color' : 'darkred'});
+        }
+        else
+        {
+            $('body').css({'background' : 'url("assets/img/backgrounds/bg1.jpg")', 'background-size' : 'cover'});
+            $('#heading').css({'color' : 'white'});
+        }
+    }
 
 </script>
 

@@ -234,7 +234,7 @@
     $("#1").click(function () {
 
         $("#loading").css("display","block");
-
+        window.scrollTo(0,0);
         $.get('/w-test-ar-1',function (data,status) {
             show_table(data);
         });
@@ -243,7 +243,7 @@
     $("#2").click(function () {
 
         $("#loading").css("display","block");
-
+        window.scrollTo(0,0);
         $.get('/w-test-ar-2',function (data,status) {
             show_table(data);
         });
@@ -252,7 +252,7 @@
     $("#3").click(function () {
 
         $("#loading").css("display","block");
-
+        window.scrollTo(0,0);
         $.get('/w-test-ar-3',function (data,status) {
             show_table(data);
         });

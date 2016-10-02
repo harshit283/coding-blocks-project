@@ -231,7 +231,7 @@
     $("#1").click(function () {
 
         $("#loading").css("display","block");
-
+        window.scrollTo(0,0);
         $.get('/w-odi-fld-1',function (data,status) {
             show_table(data);
         });
@@ -240,7 +240,7 @@
     $("#2").click(function () {
 
         $("#loading").css("display","block");
-
+        window.scrollTo(0,0);
         $.get('/w-odi-fld-2',function (data,status) {
             show_table(data);
         });
@@ -249,7 +249,7 @@
     $("#3").click(function () {
 
         $("#loading").css("display","block");
-
+        window.scrollTo(0,0);
         $.get('/w-odi-fld-3',function (data,status) {
             show_table(data);
         });
