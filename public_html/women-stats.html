@@ -144,7 +144,7 @@
     <div class="row">
 
         <div class="col-sm-12">
-            <h1 align="center" style="font-family: Serif ; font-size: 80px;color: blueviolet" >CRICKET STATS</h1>
+            <h1 align="center" id="heading" style="font-family: Serif ; font-size: 80px;color: blueviolet" >CRICKET STATS</h1>
         </div>
 
     </div>
@@ -227,6 +227,27 @@
 
     $('td').css({'background-color' : 'purple', 'color' : 'white', 'text-align' : 'center', 'font-size' : '1.3em'});
     $('a').css({'color' : 'white'});
+
+    function manage() {
+
+        if(window.innerWidth < 1000)
+        {
+            $('body').css({'background' : 'none'});
+            $('#heading').css({'font-size' : '65px'});
+        }
+        else {
+            $('body').css({'background' : 'url("assets/img/backgrounds/bg7.jpg")', 'background-size' : '120%'});
+            $('#heading').css({'font-size' : '80px'});
+        }
+
+
+
+
+    }
+
+    var man = setInterval(manage, 500)
+
+
 </script>
 </body>
 </html>

@@ -160,7 +160,7 @@
             <span style="background-color: rgba(0,255,255,0.6)" >WOMEN CRICKET&nbsp;
             </span>
     </div>
-    <div class="row" style="text-align: center; margin: 0px; padding: 0px">
+    <div class="row" id="heading2" style="text-align: center; margin: 0px; padding: 0px">
 
             <span style="background-color: rgba(0,255,255,0.6); font-size: 3em; color: deeppink;        font-style: italic; text-decoration: underline;        font-family: fantasy;" >Its a woman's world&nbsp;
 
@@ -169,12 +169,12 @@
 
     <br><br><br>
 
-    <div class="row" style="text-align: justify; background-color: rgba(0,128,128,0.9);">
+    <div class="row" id="description_section" style="text-align: justify; background-color: rgba(0,128,128,0.9); padding: 10px">
 
         <br>
-        <span style="text-align: justify;  color: hotpink; font-size: 2em; font-family: cursive">
+        <span style="text-align: justify;  color: hotpink; font-size: 2em; font-family: cursive;">
 
-                In a world where women are making their presence felt everyday, where women are capable of establishing and 4
+                In a world where women are making their presence felt everyday, where women are capable of establishing and
                 dissolving governments, where women are fighting terrorists, bringing medals and forming a indispensable
                 part of leadership and judiciary, a website devoted to cricket would have been of no use if it lacked an
                 exclusive section for women's cricket.
@@ -184,12 +184,11 @@
         <br>
     </div>
     <br><br>
-    <div class="row" style="background-color: rgba(0,128,128,0.9); padding: 0px">
+    <div class="row" id="description2" style="background-color: rgba(0,128,128,0.9); padding: 0px">
 
         <p style="font-size: 2em; text-align: center; background-color: rgba(100,255,0,0.5); color: whitesmoke; margin: 0px; padding: 0px">
 
-            So, here is our woman's section. <br>Here you can find stats and matches related only to women's cricket.<br>Many more
-            features coming soon.
+            Here is our woman's section. <br>Here you can find stats and matches related only to women's cricket.
 
         </p>
     </div>
@@ -284,14 +283,25 @@
         if(window.innerWidth < 1000)
         {
             $('.btn').css({'font-size' : '2em'});
-            $('#c').css({'font-size' : '1.5em'});
-
+            $('#c').css({'font-size' : '1.2em'});
+            $('#description_section').css({'display' : 'none'});
+            $('#heading2').css({'display' : 'none'});
+            $('#heading').css({'font-size' : '3.9em'});
+            $('#description2').css({'font-size' : '0.85em'});
+            $('body').css({'background' : 'none'});
+            $('#heading span').css({'background-color' : 'rgba(0,0,0,0)'});
         }
         else
         {
             $('#c').css({'font-size' : '2.5em'});
 
             $('.btn').css({'font-size' : '2.5em'});
+            $('#description_section').css({'display' : 'block'});
+            $('#heading2').css({'display' : 'block'});
+            $('#heading').css({'font-size' : '5em'});
+            $('body').css({'background' : 'url("assets/img/backgrounds/woman1.jpg")', 'background-size' : '130%'});
+            $('#heading span').css({'background-color' : 'rgba(0,255,255,0.6)'});
+            $('#description2').css({'font-size' : '1em'});
 
         }
 
@@ -301,5 +311,9 @@
 
 
 </script>
+
 </body>
+
+
+
 </html>

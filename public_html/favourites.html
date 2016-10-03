@@ -242,7 +242,25 @@
             }
         });
 
+        var m = setInterval(check, 600);
+
     });
+
+    function check()
+    {
+        if(window.innerWidth < 1000)
+        {
+            $('body').css({'background' : 'none'});
+            $('#fav').css({'background-color' : 'rgba(0,0,0,0)'});
+            $('#heading').css({'background-color' : 'rgba(0,0,0,0)'});
+        }
+        else
+        {
+            $('body').css({'background' : 'url("assets/img/backgrounds/bg5.jpg")', 'background-size' : 'cover'});
+            $('#heading').css({'background-color' : 'rgba(0,255,0,0.5)'});
+            $('#fav').css({'background-color' : 'lightgoldenrodyellow'});
+        }
+    }
 
 </script>
 
