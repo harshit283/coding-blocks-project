@@ -20,15 +20,11 @@
 </div>
 <script src="../jquery.js"></script>
 <script>
-
     $(function () {
-        $('.btn').click(function () {
-
-            window.location.href = "odi-wk-records.html";
-        });
 
         $('#1').html("Loading...");
-        $.get('/odi-wk-8',function (data,status) {
+
+        $.get('/odi-wk-8',{username : localStorage.getItem('username')},function (data,status) {
 
             $("#1").html(data);
             var T = $('table');

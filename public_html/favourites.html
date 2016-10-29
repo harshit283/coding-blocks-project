@@ -222,7 +222,7 @@
             }
 
 
-            for( i = 0; i<data.fav.length; i++)
+            for( i = data.fav.length - 1; i>=0; --i)
             {
                 string += '<br><mark> <a href="' + data.fav[i][1] + '">' + data.fav[i][0] + '</a></mark><br>';
             }
