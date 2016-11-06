@@ -1,8 +1,8 @@
 <html>
-<head>
+<head><title>Records</title>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-theme.css">
+    <script src="../../jquery.js"></script><link rel="stylesheet" href="../../css/bootstrap.min.css"><link rel="stylesheet" href="../../css/bootstrap-theme.css">
+
 
     <style>
     </style>
@@ -19,16 +19,14 @@
         <div class="col-xs-2"></div>
     </div>
 </div>
-<script src="../jquery.js"></script>
+
 <script>
 
     $(function () {
-        $('.btn').click(function () {
 
-            window.location.href = "odi-wk-records.html";
-        });
         $('#1').html("Loading...");
-        $.get('/odi-wk-3',function (data,status) {
+
+        $.get('/odi-wk-3',{username : localStorage.getItem('username')},function (data,status) {
 
             $("#1").html(data);
             var T = $('table');

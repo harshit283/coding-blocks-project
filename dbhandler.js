@@ -4,19 +4,19 @@ const assert = require('assert');
 const url = "mongodb://node-project:node-project@ds145315.mlab.com:45315/node-project";
 function check_user(obj,callback)
 {
-    //console.log("Check User Called");
+    //// console.log("Check User Called");
     mongoClient.connect(url, function (err, db)
     {
         assert.equal(err,null);
 
         var handler = db.collection('documents');
 
-        //console.log("hello");
+        //// console.log("hello");
         handler.find({'username':obj.username}).toArray(function (err,result) {
 
-            //console.log("result of check user function");
-            //console.log(result);
-            //console.log("done");
+            //// console.log("result of check user function");
+            //// console.log(result);
+            //// console.log("done");
             assert.equal(err,null);
             if(result.length)
             {
@@ -93,7 +93,7 @@ function fetchUser(username, callback) {
                 throw  err;
             }
 
-            //console.log("callback");
+            //// console.log("callback");
             callback(result);
             db.close();
 
@@ -105,15 +105,15 @@ function updateInfo(obj, callback) {
 
     mongoClient.connect(url, function (err, db)
     {
-        //console.log("Inside Update Info");
-        //console.log(obj);
+        //// console.log("Inside Update Info");
+        //// console.log(obj);
         assert.equal(err,null);
         var handler = db.collection('documents');
 
         handler.find({'username' : obj.l_username}).toArray(function (err, result) {
 
-            //console.log("Result of finding query of update info");
-            //console.log(result);
+            //// console.log("Result of finding query of update info");
+            //// console.log(result);
             obj['password'] = result[0].password;
             obj['favourites'] = result[0].favourites;
 
@@ -121,7 +121,7 @@ function updateInfo(obj, callback) {
 
                 if (err)
                 {
-                    //console.log(err);
+                    //// console.log(err);
                 }
 
 
@@ -137,7 +137,7 @@ function updateInfo(obj, callback) {
 
                     if (err)
                     {
-                        //console.log(err);
+                        //// console.log(err);
                     }
 
                     db.close();
@@ -160,14 +160,14 @@ function deleteAll() {
 
     mongoClient.connect(url, function (err, db)
     {
-        //console.log("Inside Delete All");
-        ////console.log(obj);
+       // // console.log("Inside Delete All");
+        //// console.log(obj);
         assert.equal(err,null);
         var handler = db.collection('documents');
         handler.deleteMany({}, function (err, result) {
 
-            //console.log(result);
-            //console.log("Deleted");
+      //      // console.log(result);
+        //    // console.log("Deleted");
 
         });
     });
@@ -181,18 +181,18 @@ function UpdatePassword(obj, callback)
 
     mongoClient.connect(url, function (err, db)
     {
-        //console.log("Inside Update Password");
-        //console.log(obj);
+        //// console.log("Inside Update Password");
+        //// console.log(obj);
         assert.equal(err,null);
         var handler = db.collection('documents');
 
         handler.find({'username' : obj.username}).toArray(function (err, result) {
 
-            //console.log("Result of finding query of update info");
-            //console.log(result);
+            //// console.log("Result of finding query of update info");
+            //// console.log(result);
             if(obj.pass1!=result[0].password)
             {
-                //console.log("Update Password Sending Value Zero");
+                //// console.log("Update Password Sending Value Zero");
                 callback(0);
                 db.close();
                 return;
@@ -207,7 +207,7 @@ function UpdatePassword(obj, callback)
 
                 if (err)
                 {
-                    //console.log(err);
+                    //// console.log(err);
                 }
 
 
@@ -222,7 +222,7 @@ function UpdatePassword(obj, callback)
 
                     if (err)
                     {
-                        //console.log(err);
+                        //// console.log(err);
                     }
 
                     db.close();
@@ -242,20 +242,20 @@ function UpdatePassword(obj, callback)
 
 function  login(obj, callback) {
 
-    //console.log("Login Called");
+    //// console.log("Login Called");
     mongoClient.connect(url, function (err, db)
     {
         assert.equal(err,null);
-        //console.log("Object passed is");
-        //console.log(obj);
+        //// console.log("Object passed is");
+        //// console.log(obj);
         var handler = db.collection('documents');
 
-        //console.log("hello");
+        //// console.log("hello");
         handler.find({'username':obj.username}).toArray(function (err,result) {
 
-            //console.log("result of login function");
-            //console.log(result);
-            //console.log("done");
+            //// console.log("result of login function");
+            //// console.log(result);
+            //// console.log("done");
             assert.equal(err,null);
             if(result.length == 0)
             {
@@ -285,23 +285,23 @@ function  login(obj, callback) {
 
 function  addFavourites(username, string, path, callback) {
 
-    console.log(username);
-    console.log(string);
-    console.log(path);
-    //console.log("Add Favourites Called");
+    // console.log(username);
+    // console.log(string);
+    // console.log(path);
+    //// console.log("Add Favourites Called");
     mongoClient.connect(url, function (err, db)
     {
         assert.equal(err,null);
-        // //console.log("Object passed is");
-        ////console.log(obj);
+        // //// console.log("Object passed is");
+        ////// console.log(obj);
         var handler = db.collection('documents');
 
-        ////console.log("hello");
-        //console.log("Username received is");
-        //console.log(username);
-        //console.log("PAth");
-        //console.log(path);
-        //console.log(string);
+        ////// console.log("hello");
+        //// console.log("Username received is");
+        //// console.log(username);
+        //// console.log("PAth");
+        //// console.log(path);
+        //// console.log(string);
 
 
         if(username == null || username == "")
@@ -313,9 +313,9 @@ function  addFavourites(username, string, path, callback) {
         handler.find({'username': username}).toArray(function (err,result) {
 
             assert.equal(err,null);
-            //console.log("result of add favourites function");
-            //console.log(result[0]);
-            console.log(result.length);
+            //// console.log("result of add favourites function");
+            //// console.log(result[0]);
+            // console.log(result.length);
             if(result == undefined || typeof result == 'undefined' || typeof result == undefined || result == 'undefined' || result == null)
             {
                 db.close();
@@ -324,11 +324,11 @@ function  addFavourites(username, string, path, callback) {
             }
 
             result[0].favourites.push([string, path]);
-            //console.log("done");
+            //// console.log("done");
             handler.deleteOne({'username': username}, function (data, status) {
 
-                //console.log(data);
-                console.log("deleted");
+                //// console.log(data);
+                // console.log("deleted");
                 handler.insertOne({
 
                     'username':result[0].username,
@@ -340,7 +340,7 @@ function  addFavourites(username, string, path, callback) {
 
                 }, function (err, result) {
 
-                    console.log("Added Favourites Everything Fine");
+                    // console.log("Added Favourites Everything Fine");
                     callback(1);
 
                 })
@@ -358,20 +358,20 @@ function  addFavourites(username, string, path, callback) {
 
 function  searchFavourites(username, callback) {
 
-    //console.log("Add Favourites Called");
+    //// console.log("Add Favourites Called");
     mongoClient.connect(url, function (err, db)
     {
         assert.equal(err,null);
-        // //console.log("Object passed is");
-        ////console.log(obj);
+        // //// console.log("Object passed is");
+        ////// console.log(obj);
         var handler = db.collection('documents');
 
-        ////console.log("hello");
+        ////// console.log("hello");
         handler.find({'username': username}).toArray(function (err,result) {
 
-            //console.log("result of favourites function");
-            //console.log(result[0].favourites);
-            //console.log("done");
+            //// console.log("result of favourites function");
+            //// console.log(result[0].favourites);
+            //// console.log("done");
             assert.equal(err,null);
 
             //result[0].favourites.push(string);
@@ -388,16 +388,16 @@ function review(obj, callback) {
     mongoClient.connect(url, function (err, db)
     {
         assert.equal(err,null);
-        // //console.log("Object passed is");
-        ////console.log(obj);
+        // //// console.log("Object passed is");
+        ////// console.log(obj);
         var handler = db.collection('review');
 
-        ////console.log("hello");
+        ////// console.log("hello");
         handler.insertOne({'name' : obj.name, str2 : obj.str2, str3 : obj.str3, str4 : obj.str4 }, function (err,result) {
 
-            //console.log("result of favourites function");
-            //console.log(result[0].favourites);
-            //console.log("done");
+            //// console.log("result of favourites function");
+            //// console.log(result[0].favourites);
+            //// console.log("done");
             assert.equal(err,null);
 
             //result[0].favourites.push(string);
@@ -410,6 +410,8 @@ function review(obj, callback) {
 
 
 }
+
+//deleteAll();
 
 module.exports = {
     check_user: check_user,
