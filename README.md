@@ -1,8 +1,8 @@
 # CRICFRENZY
 
-##### A website that can show records, live scores, results etc of cricket matches built using [Node.js](https://nodejs.org/en/), [MonogoDB](https://www.mongodb.com/) and [Bootstrap](http://getbootstrap.com/).
+#### A website that can show records, live scores, results etc of cricket matches built using [Node.js](https://nodejs.org/en/), [MonogoDB](https://www.mongodb.com/) and [Bootstrap](http://getbootstrap.com/). 
 
-#### Link : [www.cricket-project.herokuapp.com](www.cricket-project.herokuapp.com)
+## Link : [www.cricket-project.herokuapp.com](www.cricket-project.herokuapp.com)
 
 
 ![Screenshot](public_html/assets/Screenshot1.png)
@@ -10,7 +10,7 @@
 
 
 ## Features
-* User can see news, interviews, and all past, present and future results and schedules. You can even view live scores.
+* User can see news, interviews, and all past, present results and schedules. You can even view live scores.
 
 
 ![Screenshot](public_html/assets/Screenshot3.png)
@@ -24,5 +24,3 @@
  ![Screenshot](public_html/assets/Screenshot5.png)
  
  
-
- There are a lot of other features. You may use the website and write your review [here](http://cricket-project.herokuapp.com/review.html).
